@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ingenico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-overrides.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img class="img-responsive" src="images/_0001s_0015_ING-Logo.png" alt="Ingenico">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">
+                    <img class="img-responsive ico" src="images/_0001s_0012_People.png" alt="People">
+                    <span class="caption">USERS</span>
+                </a></li>
+                <li><a href="#">
+                    <img class="img-responsive ico" src="images/_0001s_0011_Cash-Register.png" alt="Cash_register">
+                    <span class="caption">POS</span>
+                </a></li>
+                <li><a href="#">
+                    <img class="img-responsive ico" src="images/_0001s_0013_Speech-Bubble-3.png" alt="Bubble-orders-3">
+                    <span class="caption">ORDERS</span>
+                </a></li>
+                <li><a href="#">
+                    <img class="img-responsive ico" data-toggle="modal" data-target="#settings" src="images/_0001s_0010_Cog-4.png" alt="COG">
+                    <span class="caption">SETTINGS</span>
+                </a></li>
+                <li><a href="#">
+                    <img class="img-responsive ico" src="images/_0001s_0014_Circle_help.png" alt="Help">
+                    <span class="caption">HELP</span>
+                </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">
+                    <span class="caption" style="display: inline;">John D.</span>
+                    <span class="current-user">
+                        <img style="display: inline; height: 80%; margin-left: 15px; margin-right: 15px;"
+                             class="img-responsive ico" src="images/_0001s_0008_User-2.png">
+                    </span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
+
+<div class="container main">
+<div class="row row-offcanvas row-offcanvas-left main-container">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sidebar-offcanvas tabbable tabs-left" id="sidebar-left"
+         role="navigation">
+        <div class="panel-body">
+            <h4>POS</h4>
+        </div>
+
+
+        <!-- tabs left -->
+        <ul class="nav nav-tabs">
+            <li><a href="#">
+                <div class="tabs-left-ico-wrapper">
+                    <div class="tabs-left-ico">
+                        <img class="img-responsive" src="images/_0003s_0008_Search.png" alt="Search">
+                    </div>
+                    <div class="title">Search</div>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </a></li>
+            <li class="active">
+                <a href="#" data-toggle="tab">
+                    <div class="tabs-left-ico-wrapper">
+                        <div class="tabs-left-ico">
+                            <img class="img-responsive" src="images/_0003s_0007_Sport.png" alt="By Sports">
+                        </div>
+                        <div class="title">By Sport</div>
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </div>
+                </a></li>
+            <li><a href="#">
+                <div class="tabs-left-ico-wrapper">
+                    <div class="tabs-left-ico">
+                        <img class="img-responsive" src="images/_0003s_0006_Clothing.png" alt="Clothing">
+                    </div>
+                    <div class="title">Clothing</div>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <div class="tabs-left-ico-wrapper">
+                    <div class="tabs-left-ico">
+                        <img class="img-responsive" src="images/_0003s_0005_Outdoor.png" alt="Outdoor">
+                    </div>
+                    <div class="title">Outdoor</div>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <div class="tabs-left-ico-wrapper">
+                    <div class="tabs-left-ico">
+                        <img class="img-responsive" src="images/_0003s_0004_Water.png" alt="Water">
+                    </div>
+
+                    <div class="title">Water</div>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <div class="tabs-left-ico-wrapper">
+                    <div class="tabs-left-ico">
+                        <img class="img-responsive" src="images/_0003s_0003_Cycling.png" alt="Cycling">
+                    </div>
+                    <div class="title">Cycling</div>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <div class="tabs-left-ico-wrapper">
+                    <div class="tabs-left-ico">
+                        <img class="img-responsive" src="images/_0003s_0002_Fitness.png" alt="Fitness">
+                    </div>
+                    <div class="title">Fitness</div>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </a></li>
+            <li><a href="#">
+                <div class="tabs-left-ico-wrapper">
+                    <div class="tabs-left-ico">
+                        <img class="img-responsive" src="images/_0003s_0001_Camping.png" alt="Camping">
+                    </div>
+                    <div class="title">Camping</div>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 central-block">
+        <div class="panel-body">
+            <h4>BY SPORT</h4>
+        </div>
+        <p class="pull-left visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+        </p>
+
+        <ul class="nav nav-tabs products row">
+            <li class="active col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="javascript:void(0)"><img
+                    src="images/_0005s_0024_Football.png"/><span>FOOTBALL</span></a></li>
+            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="javascript:void(0)"><img
+                    src="images/_0005s_0023_Basketball.png"><span>BASKETBALL</span></a></li>
+            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="javascript:void(0)"><img
+                    src="images/_0005s_0022_Baseball.png"/><span>BASEBALL / SOFTBALL</span></a></li>
+            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="javascript:void(0)"><img
+                    src="images/_0005s_0021_Soccer.png"/><span>SOCCER</span></a></li>
+            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="javascript:void(0)"><img
+                    src="images/_0005s_0020_Golf.png"/><span>GOLF</span></a></li>
+            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><a href="javascript:void(0)"><img
+                    src="images/_0005s_0019_More-Categories.png"/><span>MORE ...</span></a></li>
+        </ul>
+
+        <div class="items row" id="items">
+
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="footballs" price="0.10" title="Football">
+                <a href="javascript:void(0)">
+                    <img id="football_item" class="item-box" src="images/_0005s_0036_football.png"/><br/>
+                    Football
+                </a>
+            </div>
+
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="cleats" price="0.15" title="Cleat">
+                <a href="javascript:void(0)">
+                    <img class="item-box" src="images/_0005s_0035_cleats.png"><br/>
+                    Cleat</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="pads" price="0.15" title="Pad">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0026_pad.png"><br/>
+                    Pad</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="helmets" price="0.30" title="Helmet">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0027_helmet.png"><br/>
+                    Helmet</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="girdles" price="0.40" title="Girdles">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0034_girdles.png"><br/>
+                    Girdles</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="clothing" price="0.30" title="Clothing">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0033_clothing.png"><br/>
+                    Clothing</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="gear" price="0.30" title="Gear">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0032_gear.png"><br/>
+                    Gear</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="accessories" price="0.30" title="Accessories">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0031_accessories.png"><br/>
+                    Accessories</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="gloves" price="0.30" title="Gloves">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0030_gloves.png"><br/>
+                    Gloves</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="mouth_guard" price="0.30" title="Mouth guard">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0029_mouth_guards.png"><br/>
+                    Mouth guard</a>
+            </div>
+            <div class="item col-lg-3 col-md-3 col-sm-3 col-xs-3" id="trainings" price="0.30" title="Trainings">
+                <a href="javascript:void(0)">
+
+                    <img class="item-box" src="images/_0005s_0028_training.png"><br/>
+                    Trainings</a>
+            </div>
+            <div class="item-more col-lg-3 col-md-3 col-sm-3 col-xs-3" id="more">
+                <a href="javascript:void(0)">
+                    <img class="item-box" src="images/_0005s_0025_More_Items.png"><br/>
+                    More ...</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-cart">
+        <div id="cart">
+            <div class='panel-body'><h4>ITEMS / RECEIPT</h4></div>
+            <h3>Your cart is empty</h3>
+
+            <p>
+                Please, click on the product icon for adding it to the cart.
+            </p>
+
+        </div>
+    </div>
+</div>
+
+        <!-- Modal Settings-->
+        <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settingsLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document"> 
+                <div class="modal-content">
+                    <div class="modal-header navbar">
+                        <h5 class="modal-title" id="settingsLabel">Settings</h5>
+                        <h6 class="modal-title">Application version: 1.0</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span>Server:</span>
+                            <input type="text" class="form-control" aria-label="" value="" id="settingsServer" />
+                            <div class="input-group-append">
+                                <span class="input-group-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<footer>
+    <p>POWERED BY: Ingenico Copyright &copy; Ingenico, North America. All rights reserved.</p>
+</footer>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.0.3.min.js"></script>
+<!-- <script src="js/jquery-ui-1.10.3.custom.min.js"></script> -->
+<script src="js/jquery.cookie.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/retina-1.1.0.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/custom_proto.js"></script>
+<script src="js/payment_result.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/flow.js"></script>
+<script src="js/transaction.js"></script>
+<script src="js/application.js"></script>
+<script >$('#settings').on('show.bs.modal', Settings.onShow)</script>
+<script >$('#settings').on('click', '.btn-primary', Settings.onSave)</script>
+
+</body>
+</html>

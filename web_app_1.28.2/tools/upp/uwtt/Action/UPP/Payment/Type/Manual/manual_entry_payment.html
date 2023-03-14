@@ -1,0 +1,85 @@
+<div class="row pt-1">
+  <div class="col-md-2"></div>
+  <div class="col-md-4 text-right pt-2">
+    <h6>Payment Type</h6>
+  </div>
+  <div class="col-md-4 text-center">
+    <select class="form-control" id="payment_paymen_type">
+      <option value=""></option>
+      <option value="debit">A (Debit)</option>
+      <option value="credit">B (Credit)</option>
+      <option value="C">C (EBT Cash)</option>
+      <option value="D">D (EBT Foodstamps)</option>
+      <option value="E">E (Store Charge)</option>
+      <option value="F">F (Loyalty)</option>
+      <option value="G">G (PayPal)</option>
+      <option value="H">H</option>
+      <option value="I">I</option>
+      <option value="J">J</option>
+      <option value="K">K</option>
+      <option value="L">L</option>
+      <option value="M">M</option>
+      <option value="N">N</option>
+      <option value="O">O</option>
+      <option value="P">P</option>
+    </select>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<div class="row pt-2">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <h6 class="modal-title text-right pt-1">Amount (in subunits):</h6>
+  </div>
+  <div class="col-md-4">
+    <div class="input-group input-group-sm">
+      <input type="number" min="0" max="2000000000" step="1" id="payment_amount"  class="form-control"
+        onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <h6 class="modal-title text-right pt-1">Cashback (in subunits):</h6>
+  </div>
+  <div class="col-md-4">
+    <div class="input-group input-group-sm">
+      <input type="number" min="0" max="2000000000" step="1" id="payment_cashback" class="form-control"
+      onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<div class="row pt-2" id="manualEntryRow">
+  <div class="col-md-12">
+    <div class="accordion" id="accordionManualEntry">
+      <div class="card">
+        <div class="card-header" id="manualEntryCard">
+          <h5 class="mb-0">
+            <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#manualEntryInput" aria-expanded="true" aria-controls="manualEntryInput">
+              Manual Entry Fields
+            </button>
+          </h5>
+        </div>
+        <div id="manualEntryInput" class="collapse" aria-labelledby="manualEntryCard" data-parent="#accordionManualEntry">
+          <div class="card-body">
+            <div class="container-fluid" id="manualEntryContainer">
+              <div class="row pt-2 border-top" id="manualEntrySpecificRow">
+                <div class="col-md-6 text-center">
+                  <select class="form-control" id="manual_entry_type">
+                    <option value="pan">PAN Only</option>
+                    <option value="pan,exp">PAN/Expiration Data</option>
+                    <option value="pan,cvv">PAN/CVV</option>
+                    <option value="pan,exp,cvv">PAN/Expiration Data/CVV</option>
+                    <option value="none">None</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

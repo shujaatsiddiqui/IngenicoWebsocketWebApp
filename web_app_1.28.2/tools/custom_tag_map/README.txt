@@ -1,0 +1,1 @@
+To enable custom tags for custom transactions tsi_custom_map.json should be edited as needed and uploaded on to the terminal. tsi_custom_map.json has the same syntax as tsi_map.json file included in the iConnect-WS package.

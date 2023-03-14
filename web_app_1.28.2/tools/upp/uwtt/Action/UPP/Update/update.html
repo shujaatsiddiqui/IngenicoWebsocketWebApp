@@ -1,0 +1,132 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- "&times;" gives warning on Firefox. Using 0x00D7 Unicode character instead -->
+                    <span aria-hidden="true">&#xd7;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+
+                    <div class="row pt-2">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <h6 class="modal-title text-right pt-2">Download Mechanism:</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" id="update_download_mechanism">
+                                <option value="em">Estate Manager</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+
+                    <div class="row pt-2">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <h6 class="modal-title text-right pt-2">Command:</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" id="update_type_command">
+                                <option value="configure">Configure</option>
+                                <option value="start_download">Start</option>
+                                <option value="get_download_status">Get Status</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <br/>
+
+
+                    <div id="commandStart">
+                        <div class="row pt-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="start_background_download">
+                                    <label class="form-check-label" for="start_background_download">Background Download</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+
+                    <div id="commandConfigure">
+
+                        <div class="row pt-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <h6 class="modal-title text-right pt-2">Network Type:</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" id="update_configure_network_type">
+                                    <option value="ethernet">Ethernet</option>
+                                    <option value="wifi">WiFi</option>
+                                    <option value="pcl">PCL</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <h6 class="modal-title text-right pt-2">Contract Number:</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="update_configure_contract_number" class="form-control">
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <h6 class="modal-title text-right pt-2">TMS Address:</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="update_configure_tms_address" class="form-control">
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <h6 class="modal-title text-right pt-2">TCP Port:</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="update_configure_tcp_port" class="form-control">
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <h6 class="modal-title text-right pt-2">SSL Profile:</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="update_configure_ssl_profile" class="form-control">
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="update_send_btn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="form_entry_label">File</h5>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+
+              <div class="row pt-2">
+                <div class="col-md-12">
+                  <div class="accordion" id="accordionConfig">
+                    <div class="card">
+                      <div class="card-header" id="headingFileRead">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#fileRead" aria-expanded="true" aria-controls="fileRead">
+                           Read
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="fileRead" class="collapse" aria-labelledby="headingFileRead" data-parent="#accordionConfig">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title">File path on the terminal:</p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="readDstPath" class="form-control" placeholder="/HOST/DATA.TMP"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title">File name on the PC:</p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="readLocalPath" class="form-control" placeholder="File will be saved in the browser download folder"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                              <div class="col-md-12">
+                                <div class="progress">
+                                  <div class="progress-bar" id="fileReadProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                              <div class="col-md-12 text-center">
+                                <button class="btn btn-secondary" type="button" id="btnReadBinFile">Download</button>
+                              </div>
+                              <a id="downloadlink" style="display: none">Download</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingFileWrite">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#fileWrite" aria-expanded="true" aria-controls="fileWrite">
+                           Write
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="fileWrite" class="collapse" aria-labelledby="headingFileWrite" data-parent="#accordionConfig">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title">File path on the terminal:</p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="dstPath" class="form-control" placeholder="/HOST/DATA.TMP"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                              <div class="col-md-12">
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="binFilePath"/>
+                                        <label class="custom-file-label" for="binFilePath">File name</label>
+                                    </div>
+                                    <div class="input-group-append pl-2">
+                                        <button class="btn btn-secondary" type="button" id="btnUploadBinFile">Upload</button>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                              <div class="col-md-12">
+                                <div class="progress">
+                                  <div class="progress-bar" id="fileProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingFileMisc">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#fileMisc" aria-expanded="true" aria-controls="fileMisc">
+                           Miscellaneous
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="fileMisc" class="collapse" aria-labelledby="headingFileMisc" data-parent="#accordionConfig">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title">File path on the terminal:</p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="miscDstPath" class="form-control" placeholder="/HOST/DATA.TMP"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                              <div class="col-md-4">
+                                <p class="modal-title">Action:</p>
+                              </div>
+                              <div class="col-md-8">
+                                <select class="form-control" id="fileActionType">
+                                  <option value="find">Find</option>
+                                  <option value="find_crc32">Find with calculated crc32</option>
+                                  <option value="remove">Remove</option>
+                                  <option value="install">Install</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                              <div class="col-md-12 text-center">
+                                <button class="btn btn-secondary" type="button" id="btnSendMiscFile">Send</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary ing-blue" data-dismiss="modal" id="btnDone">Done</button>
+          </div>
+        </div>
+    </div>
+</div>

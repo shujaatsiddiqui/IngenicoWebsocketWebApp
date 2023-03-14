@@ -1,0 +1,46 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Authorization request</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row clearfix border-bottom">
+            <div class="col-md-12">
+              <table class="table table-hover small-text" id="auth_req_tag_tb">
+                <tr class="tr-header">
+                  <th>Tag</th>
+                  <th>Encoding</th>
+                  <th>Data</th>
+                  <th><a href="javascript:void(0);" style="font-size:18px;" id="auth_req_add_more" title="Add More Tags"><span class="oi oi-plus"></span></a></th>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="col-sm-2">
+              <p class="pt-2">Tags:</p>
+            </div>
+            <div class="col-sm-5">
+              <select class="form-control" id="auth_req_tag">
+                      <option value=""></option>
+                      <option value="8A">(8A) Authorization Response Code (ARC)</option>
+                    </select>
+            </div>
+            <div class="col-sm-3">
+              <select class="form-control" id="auth_req_tag_data">
+                    </select>
+            </div>
+            <div class="col-sm-2">
+              <button type="button" id="auth_req_add_btn" class="btn btn-primary ing-blue">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="auth_req_send_btn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

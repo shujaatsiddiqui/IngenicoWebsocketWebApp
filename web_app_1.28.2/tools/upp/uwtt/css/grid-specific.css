@@ -1,0 +1,118 @@
+.evt-response-editor {
+    height: 276px;
+    width: 100%;
+}
+
+.request-editor {
+    height:400px;
+    width:100%;
+}
+
+.json-viewer-editor{
+	height:100%;
+	width:100%;
+}
+
+.main-container {
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.last-row{
+	flex-grow:1;
+	display: flex;
+}
+
+.action-list{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+}
+
+.active {
+    color: red;
+}
+
+.ing-red {
+    background-color: #e31c18;
+}
+
+.ing-blue-text {
+    color: #003399;
+}
+
+.ing-blue {
+    background-color: #003399;
+}
+
+.btn-device-card-read-disconnect {
+  width: 105px;
+}
+
+.btn-device-reset {
+  width: 145px;
+}
+
+.table-container{
+    width: 100%;
+    height: min-content;
+    overflow: auto;   
+}
+
+.cart-borders {
+    display: block;
+}
+
+.cart-borders.top {
+    background: url(../images/Receipt_top.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    margin: 0 5px;
+    height: 10px;
+}
+
+.cart-borders.center {
+    background: url(../images/Receipt_center.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    padding: 10px 20px;
+    margin: 0 5px;
+}
+
+.cart-borders.bottom {
+    background: url(../images/Receipt_bottom.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    margin: 0 5px;
+    height: 44px;
+}
+
+#usi_receipt .header, #usi_receipt .footer {
+    align-items: center;
+    font-size: x-small;
+}
+
+#usi_receipt .header .line, #usi_receipt .footer .line {
+    text-align: center;
+}
+#usi_receipt .date {
+    font-size: small;
+}
+#usi_receipt .host .response, #usi_receipt .error {
+    font-size: large;
+}
+#usi_receipt .total {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#usi_receipt .hidden {
+    display: none;
+}

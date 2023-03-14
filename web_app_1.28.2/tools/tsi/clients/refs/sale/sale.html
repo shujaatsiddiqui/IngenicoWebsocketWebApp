@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+  <head> 
+    <meta charset="utf-8" />
+    <title>Sale Transaction (Reference App)</title>
+	<script src="ui.js"></script>
+	<script language="javascript" type="text/javascript">
+
+	var socket;
+	
+	function init()
+	{
+		uiInit();
+		openConnection("ws://localhost:50000/Tsi/v1/payment");
+	}
+  
+  	// Creates WebSocket and store in global variable
+	function openConnection(url)
+	{
+		showMessage("CONNECTING TO "+url, "blue");
+		// Create the websocket with callbacks.
+		socket           = new WebSocket(url);
+		socket.onopen    = function() { showMessage("CONNECTED") };
+		socket.onclose   = function() { cleanScreen(); showMessage("DISCONNECTED", "red")};
+		socket.onerror   = function() { showMessage("ERROR WEBSOCKET", "red") };
+		socket.onmessage = onMessage;
+	}
+	
+	function doTransaction(amount, tender, merchantId)
+	{
+		cleanScreen();
+		// generate flow_id
+		var flow_id = (Math.floor(Math.random() * Math.floor(1000000))).toString();
+		// prepare the payment parameters
+		var parameters = {
+			type:"sale",
+			amount:amount,
+			tender_type:tender,
+			clerk_id:"KL0001",
+			invoice_no:"INV5",
+			merchant_id:merchantId,
+			token_request:"TREQ",
+			token:"token",
+			purchase_level_2:{"tax_indicator":"2"}
+		};
+		// display the input parameters on the screen
+		showObject("TRANSACTION PAYMENT PARAMETERS:",parameters, "blue");
+		// prepare the request message
+		var message = {request:{flow_id:flow_id, resource:parameters}};
+		// send message as JSON string
+		console.log("--> "+JSON.stringify(message, null, 2));
+		if(socket.readyState === socket.OPEN)
+			socket.send(JSON.stringify(message));
+		else
+			socket.onerror();
+	}
+	function onMessage(evt)
+	{
+		// websocket data received
+		var message = JSON.parse( evt.data );
+		console.log("<-- "+JSON.stringify(message, null,2));
+		if( message.hasOwnProperty("response"))
+			onResponse(message);
+		else if( message.hasOwnProperty("event"))
+			onEvent(message);
+	}
+	function onResponse(message)
+	{
+		var resource = message.response.resource;
+		if( resource.status != "started" )
+			showMessage('TRANSACTION FAILED: ENDING THE FLOW AND CLOSE THE SOCKET', "red");
+		else
+			showMessage('TRANSACTION STARTED');
+	}
+	function onEvent(message)
+	{
+		var results = message.event.resource.results;
+		var flow_id  = message.event.flow_id;
+		showArray("TRANSACTION PAYMENT RESULT:", results);
+		// send the accknowledge back
+		var ack = { event_ack:{flow_id:flow_id,resource:{status:"ok"}}};
+		console.log("--> "+JSON.stringify(ack, null, 2));
+		if(socket.readyState === socket.OPEN)
+			socket.send(JSON.stringify(ack));
+		else
+			socket.onerror();
+	}
+
+	window.addEventListener("load", init, false);
+
+  </script>
+  </head> 
+  
+  <h2>Sale Transaction - Reference Application</h2>
+  
+  <div>
+    <a href='javascript:void(0)' onclick='doTransaction(10000,"Credit","RCTST0000000702")'>DO SALE TRANSACTION $100</a>
+  </div>
+
+  <div id="output"></div>
+  
+
+ 

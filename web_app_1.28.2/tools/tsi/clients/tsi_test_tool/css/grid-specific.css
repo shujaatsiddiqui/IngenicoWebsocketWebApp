@@ -1,0 +1,29 @@
+.evt-response-editor {
+    height: 276px;
+    width: 100%;
+}
+
+.request-editor {
+    height:400px;
+    width:100%;
+}
+
+.json-viewer-editor{
+	height:100%;
+	width:100%;
+}
+
+.main-container {
+    height: 94vh; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.last-row{
+	flex-grow:1; 
+	display: flex;
+}
+
+.ing-red {
+    background-color: #e31c18;
+}

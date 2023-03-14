@@ -1,0 +1,316 @@
+  <div class="row pt-1">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 text-right pt-2">
+      <h6>Payment Type:</h6>
+    </div>
+    <div class="col-md-6 text-center">
+      <select class="form-control" id="payment_paymen_type">
+        <option value=""></option>
+        <option value="debit">A (Debit)</option>
+        <option value="credit">B (Credit)</option>
+        <option value="C">C (EBT Cash)</option>
+        <option value="D">D (EBT Foodstamps)</option>
+        <option value="E">E (Store Charge)</option>
+        <option value="F">F (Loyalty)</option>
+        <option value="G">G (PayPal)</option>
+        <option value="H">H</option>
+        <option value="I">I</option>
+        <option value="J">J</option>
+        <option value="K">K</option>
+        <option value="L">L</option>
+        <option value="M">M</option>
+        <option value="N">N</option>
+        <option value="O">O</option>
+        <option value="P">P</option>
+      </select>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <h6 class="modal-title text-right pt-1">Amount (in subunits):</h6>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <input type="number" min="0" max="2000000000" step="1" id="payment_amount"  class="form-control"
+        onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <h6 class="modal-title text-right pt-1">Cashback (in subunits):</h6>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <input type="number" min="0" max="2000000000" step="1" id="payment_cashback" class="form-control"
+        onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row pt-1">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 text-right pt-2">
+      <h6>Contactless Mode:</h6>
+    </div>
+    <div class="col-md-6 text-center">
+      <select class="form-control" id="payment_cless_mode">
+        <option value=""></option>
+        <option value="0">Disabled</option>
+        <option value="1">PPSE Only</option>
+        <option value="2">PPSE first, Google Wallet second</option>
+        <option value="3">Google Wallet first, PPSE second</option>
+        <option value="4">Google Wallet only</option>
+        <option value="5">PPSE first, Isis SmartTap second</option>
+        <option value="6">Isis SmartTap first, PPSE second</option>
+        <option value="7">Isis SmartTap only</option>
+        <option value="8">Key Card only</option>
+        <option value="9">Emv first, PPSE second</option>
+        <option value="11">VAS signup only</option>
+        <option value="12">VAS + PPSE</option>
+        <option value="13">VAS only</option>
+        <option value="14">VAS signup once</option>
+        <option value="15">VAS or PPSE</option>
+      </select>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row pt-1">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 text-right pt-2">
+      <h6>Prompt Card Removal on Error:</h6>
+    </div>
+    <div class="col-md-6 text-center">
+      <select class="form-control" id="prompt_card_removal_on_error">
+        <option value=""></option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row" id="readersRow">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <h6 class="modal-title text-right">Enabled Readers:</h6>
+    </div>
+    <div class="col-md-6">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="payment_msr_reader" checked>
+        <label class="form-check-label" for="payment_msr_reader">MSR</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="payment_cless_reader" checked>
+        <label class="form-check-label" for="payment_cless_reader">Contactless</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="payment_smc_reader" checked>
+        <label class="form-check-label" for="payment_smc_reader">SmartCard</label>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2" id="suspendStepsRow">
+    <div class="col-md-12">
+      <div class="accordion" id="accordionSuspendSteps">
+        <div class="card">
+          <div class="card-header" id="suspendStepsCard">
+            <h5 class="mb-0">
+             <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#suspendStepsInput" aria-expanded="true" aria-controls="suspendStepsInput">
+               Contact EMV Suspend steps
+              </button>
+            </h5>
+          </div>
+          <div id="suspendStepsInput" class="collapse" aria-labelledby="suspendStepsCard" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="container-fluid" id="suspendStepContainer">
+                <div class="row pt-2 border-top" id="typeSpecificRow">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2" id="vasDataRow">
+    <div class="col-md-12">
+      <div class="accordion" id="accordionvasData">
+        <div class="card">
+          <div class="card-header" id="vasDataCard">
+            <h5 class="mb-0">
+             <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#vasDataInput" aria-expanded="true" aria-controls="vasDataInput">
+               VAS Data
+              </button>
+            </h5>
+          </div>
+          <div id="vasDataInput" class="collapse" aria-labelledby="vasDataCard" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="container-fluid" id="vasDataContainer">
+                <div class="row pt-2">
+                  <div class="col-md-3">
+                    <h6>VAS Mode:</h6>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <select class="form-control" id="vas_mode">
+                      <option value=""></option>
+                      <option value="vas_only">Vas Only</option>
+                      <option value="vas_and_payment">(Dual) Vas And Payment</option>
+                      <option value="pay_only">Pay Only</option>
+                      <option value="vas_or_payment">Single</option>
+                      <option value="signup">Signup</option>
+                    </select>
+                  </div>
+                </div>
+<div id="vas_push_data" style="display:none">
+                <div class="row pt-2">
+                  <div class="col-md-3">
+                    <h6 class="modal-title pt-1">Service Type:</h6>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group input-group-sm">
+                      <input type="alphanumeric" id="vas_push_data_type"  class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row pt-2">
+                  <div class="col-md-3">
+                    <h6 class="modal-title pt-1">Service Title:</h6>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group input-group-sm">
+                      <input type="alphanumeric" id="vas_push_data_title"  class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row pt-2">
+                  <div class="col-md-3">
+                    <h6 class="modal-title pt-1">Service Language:</h6>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group input-group-sm">
+                      <input type="alphanumeric" id="vas_push_data_language"  class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row pt-2">
+                  <div class="col-md-3">
+                    <h6 class="modal-title pt-1">Service URL:</h6>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group input-group-sm">
+                      <input type="alphanumeric" id="vas_push_data_url"  class="form-control">
+                    </div>
+                  </div>
+                </div>
+</div>
+                <div class="row pt-3"> 
+                  <div class="container">
+                      <div class="table-wrapper">
+                          <div class="table-title">
+                            <div class="row">
+                              <div class="col-sm-10"><h3>Apple Merchants</h3></div>
+                                <div class="col-sm-2">
+                                  <button type="button" class="btn btn-info add-new-apple"><i class="fa fa-plus"></i> Add New</button>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-bordered" id="apple_merch_table">
+                              <thead>
+                                <tr>
+                                  <th>Id</th>
+                                  <th>Url</th>
+                                  <th>Category Filter</th>
+                                  <th>Encrypted</th>
+                                </tr>
+                              </thead>
+                              <tbody id="apple-table-grid">
+                                  <tr>
+                                      <td>pass.com.ingenico.us.vas.test</td>
+                                      <td>https://example.com/passes/</td>
+                                      <td>0100000000</td>
+                                      <td>false</td>
+                                      <td>
+                                        <a href="javascript:void(0);" class="remove" style="font-size:18px;" title="Remove" ><span class="oi oi-minus"></span></a>
+                                        <a href="javascript:void(0);" class="edit" style="font-size:18px;"  title="Edit" ><span class="oi oi-pencil"></span></a>
+                                        <a href="javascript:void(0);" class="add" style="font-size:18px;"  title="Add" ><span class="oi oi-plus"></span></a>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>pass.com.ingenico.loyaltycard1</td>
+                                      <td>https://www.ingenico-labs.com/ws/pkpass/gi/</td>
+                                      <td>0100000000</td>
+                                      <td>false</td>
+                                      <td>
+                                        <a href="javascript:void(0);" class="remove" style="font-size:18px;" title="Remove" ><span class="oi oi-minus"></span></a>
+                                        <a href="javascript:void(0);" class="edit" style="font-size:18px;"  title="Edit" ><span class="oi oi-pencil"></span></a>
+                                        <a href="javascript:void(0);" class="add" style="font-size:18px;"  title="Add" ><span class="oi oi-plus"></span></a>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>pass.com.apple.wallet.vas.prodtest</td>
+                                      <td>https://www.jeromee.com/vas/url.php/</td>
+                                      <td>0100000000</td>
+                                      <td>false</td>
+                                      <td>
+                                        <a href="javascript:void(0);" class="remove" style="font-size:18px;" title="Remove" ><span class="oi oi-minus"></span></a>
+                                        <a href="javascript:void(0);" class="edit" style="font-size:18px;"  title="Edit" ><span class="oi oi-pencil"></span></a>
+                                        <a href="javascript:void(0);" class="add" style="font-size:18px;"  title="Add" ><span class="oi oi-plus"></span></a>
+                                      </td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="container">
+                      <div class="table-wrapper">
+                          <div class="table-title">
+                            <div class="row">
+                              <div class="col-sm-10"><h3>Google Merchant</h3></div>
+                                <div class="col-sm-2">
+                                  <button type="button" class="btn btn-info add-new-google"><i class="fa fa-plus"></i> Add New</button>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-bordered" id="google_merch_table">
+                              <thead>
+                                <tr>
+                                  <th>Id</th>
+                                  <th>Store Location</th>
+                                  <th>PinPad Id</th>
+                                  <th>Name</th>
+                                  <th>Name Language</th>
+                                  <th>Category Filter</th>
+                                  <th>Filter</th>
+                                </tr>
+                              </thead>
+                              <tbody id="google-table-grid">
+                              <tr>
+                                <td>70779451</td>
+                                <td>PLACE03</td>
+                                <td>TRMNL01</td>
+                                <td>Google Store</td>
+                                <td>en</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>
+                                <a href="javascript:void(0);" class="remove" style="font-size:18px;" title="Remove"><span class="oi oi-minus"></span></a>
+                                <a href="javascript:void(0);" class="edit" style="font-size: 18px;" title="Edit"><span class="oi oi-pencil"></span></a>
+                                <a href="javascript:void(0);" class="add" style="font-size: 18px; display: none;" title="Add"><span class="oi oi-plus"></span></a>
+                              </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>                   
+                </div>
+              </div>
+            </div>
+         </div>
+       </div>
+      </div>
+    </div>
+  </div>

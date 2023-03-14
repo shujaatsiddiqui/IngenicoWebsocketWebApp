@@ -1,0 +1,194 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="form_entry_label">Form Update</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row pt-2">
+                <div class="col-md-7">
+                  <div class="accordion" id="accordionExample">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                           Element
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title"> <small>ID:</small></p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="elementId" class="form-control"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title pt-1"> <small>ID or text:</small></p>
+                              </div>
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="selected_prompt" list="prompts" placeholder="Select Prompt ID"/>
+                                <datalist id="prompts"></datalist>
+                              </div>
+                            </div>
+                            <div class="row p-2">
+                              <div class="col-md-12 text-center">
+                                <button id="prompt_add_row" class="btn btn-default btn-sm">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link ing-blue-text collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Button
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title"> <small>ID:</small></p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="buttonId" class="form-control"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title pt-1"> <small>Label:</small></p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="buttonText" class="form-control"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                              </div>
+                              <div class="col-sm-8 pt-2">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="buttonVisibility"/>
+                                  <label class="custom-control-label" for="buttonVisibility">Visible</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row p-2">
+                              <div class="col-md-12 text-center">
+                                <button id="btn_add_row" class="btn btn-default btn-sm">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link ing-blue-text collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Image
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <p class="modal-title pt-1"> <small>ID:</small></p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="imgId" class="form-control"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                              <div class="col-sm-4">
+                                <p class="modal-title"> <small>File:</small></p>
+                              </div>
+                              <div class="col-sm-8">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="imgFile" class="form-control"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-4">
+                              </div>
+                              <div class="col-sm-8 pt-2">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="imageVisibility"/>
+                                  <label class="custom-control-label" for="imageVisibility">Visible</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row p-2">
+                              <div class="col-md-12 text-center">
+                                <button id="img_add_row" class="btn btn-default btn-sm">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="row clearfix">
+                    <div class="col-md-12">
+                      <table class="table table-bordered table-hover table-sm" id="tab_logic">
+                        <thead>
+                          <tr>
+                            <th class="text-center align-middle">
+                              Type
+                            </th>
+                            <th class="text-center align-middle" style="min-width:100px;">
+                              ID
+                            </th>
+                            <th class="text-center align-middle">
+                              Value
+                            </th>
+                            <th class="text-center align-middle"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="row pt-2">
+                    <div class="col-md-12 text-center">
+                      <button id='delete_all' class="btn btn-default btn-sm">Remove All Items</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" id="sendBtn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+          </div>
+        </div>
+    </div>
+</div>

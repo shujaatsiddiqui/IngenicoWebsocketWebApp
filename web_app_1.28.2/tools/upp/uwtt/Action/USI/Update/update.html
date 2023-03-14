@@ -1,0 +1,146 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+  data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update request type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row pt-4">
+            <div class="col-md-4">
+              <p class="modal-title">Update request type : </p>
+            </div>
+            <div class="col-md-5">
+              <div class="input-group input-group-sm">
+                <select class="form-control" id="requestType">
+                  <option value="getTmsParameters">Get TMS Parameters</option>
+                  <option value="setTmsParameters">Set TMS Parameters</option>
+                  <option value="lastCall">Get Last Call Status</option>
+                  <option value="emCall">Call Estate Manager</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-5"></div>
+          </div>
+          <div class="row pt-3" id="SetTmsParametersCommand">
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">TMS Address:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="alphanumeric" id="tms_address" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">TCP Port:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="text" id="tcp_port" class="form-control" maxlength="5"
+                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                </div>
+              </div>
+
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">SSL Profile:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="alphanumeric" id="ssl_profile" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">Phone Number:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="text" id="phone_number" class="form-control" maxlength="20"
+                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                </div>
+              </div>
+
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">Network Type:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="alphanumeric" id="network_type" class="form-control" placeholder="ETHERNET, WIFI, PCL">
+                </div>
+              </div>
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">GPRS APN:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="alphanumeric" id="gprs_apn" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">PPP Login:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="alphanumeric" id="ppp_login" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">PPP Password:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="alphanumeric" id="ppp_password" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row pt-2">
+
+              <div class="col-md-4">
+                <h6 class="modal-title text-right pt-1">Contract Number:</h6>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <input type="text" id="contract_number" class="form-control" maxlength="16"
+                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row pt-2 col-md-12 pt-4">
+            <div class="col-md-12 text-center">
+              <button type="button" id="btn_update_type_send" class="btn btn-primary ing-blue"
+                data-dismiss="modal">Send</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

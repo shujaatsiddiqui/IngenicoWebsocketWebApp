@@ -1,0 +1,265 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Configuration</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row pt-2">
+                <div class="col-md-12">
+                  <div class="accordion" id="accordionConfig">
+                    <div class="card">
+                      <div class="card-header" id="headingConfigWrite">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#confRead" aria-expanded="true" aria-controls="confRead">
+                           Read
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="confRead" class="collapse" aria-labelledby="headingConfigWrite" data-parent="#accordionConfig">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row pt-2">
+                              <div class="col-md-12">
+                                <div class="row clearfix">
+                                  <div class="col-md-12">
+                                    <table class="table table-bordered table-hover table-sm" id="tab_config_read">
+                                      <thead>
+                                        <tr>
+                                          <th class="text-center align-middle">
+                                            Group
+                                          </th>
+                                          <th class="text-center align-middle" style="min-width:100px;">
+                                            Key
+                                          </th>
+                                          <th class="text-center align-middle"><a href="javascript:void(0);" style="font-size:18px;" id="config_read_add_more" title="Add More"><span class="oi oi-plus"></span></a></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingConfigRead">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#confWrite" aria-expanded="true" aria-controls="confWrite">
+                           Write
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="confWrite" class="collapse" aria-labelledby="headingConfigRead" data-parent="#accordionConfig">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row pt-2">
+                              <div class="col-md-12">
+                                <div class="row clearfix">
+                                  <div class="col-md-12">
+                                    <table class="table table-bordered table-hover table-sm" id="tab_config_write">
+                                      <thead>
+                                        <tr>
+                                          <th class="text-center align-middle">
+                                            Group
+                                          </th>
+                                          <th class="text-center align-middle" style="min-width:100px;">
+                                            Key
+                                          </th>
+                                          <th class="text-center align-middle">
+                                            Value
+                                          </th>
+                                          <th class="text-center align-middle"><a href="javascript:void(0);" style="font-size:18px;" id="config_write_add_more" title="Add More"><span class="oi oi-plus"></span></a></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingEmvConfig">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#emvConf" aria-expanded="true" aria-controls="emvConf">
+                           EMV Configuration
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="emvConf" class="collapse" aria-labelledby="headingEmvConfig" data-parent="#accordionConfig">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row pt-2">
+                                <div class="col-md-5">
+                                  <h3>EMV Interface</h3>
+                                </div>
+                                <div class="col-md-5">
+                                  <h3>Location</h3>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row clearfix">
+                                  <div class="col-md-5">
+                                      <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="contactCheck" name="interfaceRadio" checked>
+                                        <label class="custom-control-label" for="contactCheck">Contact</label>
+                                      </div>
+                                      <div class="custom-control custom-radio">
+                                          <input type="radio" class="custom-control-input" id="contactLessCheck" name="interfaceRadio">
+                                          <label class="custom-control-label" for="contactLessCheck">Contactless</label>
+                                      </div>                        
+                                  </div>
+                                  <div class="col-md-5">
+                                      <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="systemCheck" name="locationRadio" checked>
+                                        <label class="custom-control-label" for="systemCheck">System</label>
+                                      </div>
+                                      <div class="custom-control custom-radio">
+                                          <input type="radio" class="custom-control-input" id="hostCheck" name="locationRadio">
+                                          <label class="custom-control-label" for="hostCheck">Host</label>
+                                      </div>   
+                                  </div>
+                                  <div class="col-md-2"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row pt-3">
+                              <div class="col-md-2">
+                                <p class="modal-title">File Name</p>
+                              </div>
+                              <div class="col-md-5">
+                                <div class="input-group input-group-sm">
+                                  <input type="text" id="emvFileName" class="form-control text-uppercase"/>
+                                </div>
+                              </div>
+                              <div class="col-md-5"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card" id="vasConfSection">
+                      <div class="card-header" id="headingVasConfig">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#vasConf"
+                            aria-expanded="true" aria-controls="vasConf">
+                            VAS Configuration
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="vasConf" class="collapse" aria-labelledby="headingVasConfig" data-parent="#accordionConfig">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                            <div class="row pt-4">
+                              <div class="col-md-4">
+                                <p class="modal-title">VAS config command</p>
+                              </div>
+                              <div class="col-md-5">
+                                <div class="input-group input-group-sm">
+                                  <select class="form-control" id="vasConfigCommand">
+                                    <option value="getMerchantsCount">Get Merchants Count</option>
+                                    <option value="clearMerchants">Clear Merchants</option>
+                                    <option value="addMerchants">Add Merchants</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-5"></div>
+                            </div>
+                            <div class="row pt-3" id="addMerchantsCommand">
+                              <div class="container-fluid" id="vasDataContainer">
+                                <div class="row pt-3">
+                    
+                                  <div class="container">
+                                    <div class="table-wrapper">
+                                      <div class="table-title">
+                                        <div class="row">
+                                          <div class="col-sm-10">
+                                            <h3>Apple Merchants</h3>
+                                          </div>
+                                          <div class="col-sm-2">
+                                            <button type="button" class="btn btn-info add-new-apple"><i class="fa fa-plus"></i> Add
+                                              New</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="table-container">
+                                        <table class="table table-bordered" id="apple_merch_table">
+                                          <thead>
+                                            <tr>
+                                              <th>Id</th>
+                                              <th>Url</th>
+                                              <th>Category Filter</th>
+                                              <th>Decrypt Pass Data</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody id="apple-table-grid">
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="container">
+                                    <div class="table-wrapper">
+                                      <div class="table-title">
+                                        <div class="row">
+                                          <div class="col-sm-10">
+                                            <h3>Google Merchant</h3>
+                                          </div>
+                                          <div class="col-sm-2">
+                                            <button type="button" class="btn btn-info add-new-google"><i class="fa fa-plus"></i> Add
+                                              New</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="table-container">
+                                        <table class="table table-bordered" id="google_merch_table">
+                                          <thead>
+                                            <tr>
+                                              <th>Id</th>
+                                              <th>Store Location</th>
+                                              <th>PinPad Id</th>
+                                              <th>Name</th>
+                                              <th>Name Language</th>
+                                              <th>Category Code</th>
+                                              <th>Filter</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody id="google-table-grid">
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row pt-2 col-md-12">
+                <div class="col-md-12 text-center">
+                  <button type="button" id="btn_config_send" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Beep</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row pb-1">
+            <div class="col-md-4">
+              <h6 class="modal-title text-left pt-2">Tone:</h6>
+            </div>
+            <div class="col-md-6 text-center">
+              <select class="form-control" id="tone_field">
+                <option value="low">Low</option>
+                <option value="middle">Middle</option>
+                <option value="high">High</option>
+                <option value="error_tone">Error tone</option>
+              </select>
+            </div>
+          </div>
+          <div class="row pb-1">
+            <div class="col-md-4">
+              <h6 class="modal-title text-left pt-2">Duration:</h6>
+            </div>
+            <div class="col-md-6 text-center">
+              <select class="form-control" id="duration_field">
+                <option value="click_length">Click length</option>
+                <option value="short">Short</option>
+                <option value="long">Long</option>
+                <option value="error_length">Error length</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="device_beep_send_btn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

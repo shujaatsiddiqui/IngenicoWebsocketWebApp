@@ -1,0 +1,39 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Card Read</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row" id="readersRow">
+            <div class="col-md-4">
+              <h6 class="modal-title text-left">Disabled Readers:</h6>
+            </div>
+            <div class="col-md-6">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="device_msr_reader" checked>
+                <label class="form-check-label" for="device_msr_reader">Magstripe</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="device_cless_reader" checked>
+                <label class="form-check-label" for="device_cless_reader">Contactless</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="device_scr_reader" checked>
+                <label class="form-check-label" for="device_scr_reader">SmartCard</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="device_cardread_send_btn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

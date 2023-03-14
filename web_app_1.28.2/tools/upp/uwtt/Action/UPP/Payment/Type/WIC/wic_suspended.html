@@ -1,0 +1,40 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false" data-keyboard="false" >
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="suspendLabel">WIC Suspended</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+              <h6 class="modal-title text-right pt-1">Command:</h6>
+            </div>
+            <div class="col-md-4 text-center">
+              <select class="form-control" id="suspended_cmd_type">
+                <option value="run">Run</option>
+                <option value="skip">Skip</option>
+                <option value="run_without_suspend">Run without suspend</option>
+                <option value="update">Update</option>
+                <option value="block_card">Block card</option>
+                <option value="void">Void</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+            </div>
+          </div>
+          <div class="row" id="suspendFieldContainer">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="suspend_send_btn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

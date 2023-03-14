@@ -1,0 +1,400 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Payment</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row pt-1 pb-1 border-bottom">
+                <div class="col-md-6 text-center pt-2">
+                  <h6>Transaction Type</h6>
+                </div>
+                <div class="col-md-6 text-center">
+                  <select class="form-control" id="payment_tnx_type">
+                    <option value="sale">Sale</option>
+                    <option value="return">Refund</option>
+                    <option value="force_sale">Force</option>
+                    <option value="void">Void</option>
+                    <option value="balance_inquiry">Card Balance Inquiry</option>
+                    <option value="reprint_receipt">Reprint Last Receipt</option>
+                    <option value="auth">Authorization</option>
+                    <option value="preauth">Pre Authorization</option>
+                    <option value="preauth_completion">Pre-Authorization Completion</option>
+                    <option value="settlement">Settlement</option>
+                    <option value="auto_settlement">Auto Settlement</option>
+                    <option value="recall_last_transaction">Recall Last Transaction</option>
+                    <option value="open_pre_auth">Open Pre Authorization</option>
+                    <option value="reload">Reload</option>
+                    <option value="activation">Activation</option>
+                    <option value="deactivation">Deactivation</option>
+                    <option value="block_activation">Block Activation</option>
+                    <option value="block_deactivation">Block Deactivation</option>
+                    <option value="reactivation">Reactivation</option>
+                    <option value="block_reactivation">Block Reactivation</option>
+                    <option value="redemption">Redemption</option>
+                    <option value="add_tip">Add Tip</option>
+                    <option value="force_issuance">Force Issuance</option>
+                    <option value="force_activation">Force Activation</option>
+                    <option value="force_redemption">Force Redemption</option>
+                    <option value="zero_gift_card_balance">Zero Gift Card Balance</option>
+                    <option value="tab_open">Tab Open</option>
+                    <option value="tab_open_force">Tab Open Force</option>
+                    <option value="tab_close">Tab Close</option>
+                    <option value="tab_delete">Tab Delete</option>
+                    <option value="tip_adjust">Tip Adjust</option>
+                    <option value="verification">Verification</option>
+                    <option value="get_token">Get Token</option>
+                    <option value="transaction_adjustment">Transaction Adjustment</option>
+                    <option value="incremental_authorization">Incremental Authorization</option>
+                  </select>
+                </div>
+              </div>
+              <div id="type_container">
+              </div>
+              <div class="row pt-2">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                  <h6 class="modal-title text-right pt-1">QSR limit (in subunits):</h6>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group input-group-sm">
+                    <input type="number" min="0" max="2000000000" step="1" id="qsr_limit" class="form-control" 
+                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+                <div class="row pt-2">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-4">
+                    <h6 class="modal-title text-right pt-1">Host approval code:</h6>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                      <input type="alphanumeric" id="host_approval_code"  class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                      <h6 class="modal-title text-right pt-1">Host transaction id:</h6>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="input-group input-group-sm">
+                        <input type="alphanumeric" id="host_txn_id" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+          <div class="row pt-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <h6 class="modal-title text-right pt-1">Original client transaction id:</h6>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group input-group-sm">
+                <input type="alphanumeric" id="original_client_txn_id" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <h6 class="modal-title text-right pt-1">Original transaction type:</h6>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group input-group-sm">
+                <input type="alphanumeric" id="original_txn_type" class="form-control">
+                      </div>
+                    </div>
+          </div>
+
+              <div class="row pt-2">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                  <h6 class="modal-title text-right pt-1">Host retrieval Ref Number:</h6>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group input-group-sm">
+                    <input type="alphanumeric" id="host_retrieval_ref_num" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row pt-2">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                  <h6 class="modal-title text-right pt-1">PAN:</h6>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group input-group-sm">
+                    <input type="alphanumeric" id="pan" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row pt-2">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                  <h6 class="modal-title text-right pt-1">Token:</h6>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group input-group-sm">
+                    <input type="alphanumeric" id="token" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row pt-2">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                  <h6 class="modal-title text-right pt-1">Token Expiry Date:</h6>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group input-group-sm">
+                    <input type="alphanumeric" id="token_exp_date" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row pt-2">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                  <h6 class="modal-title text-right pt-1">Card Mnemonic:</h6>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group input-group-sm">
+                    <input type="alphanumeric" id="token_card_mnemonic" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-2"></div>
+          </div>
+            <div class="row pt-2" style="margin-left: 20px;margin-right: 20px;" id="suspendStepsRow">
+              <div class="col-md-12">
+                <div class="accordion" id="accordionExample">
+                  <div class="card">
+                    <div class="card-header" id="headingInput">
+                      <h5 class="mb-0">
+                       <button id="tran_option_btn" class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#collapseInput" aria-controls="collapseInput">
+                         Transaction Options
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseInput" class="collapse" aria-labelledby="headingInput" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <p class="pt-2">Status Events:</p>
+                            </div>
+                            <div class="col-sm-1">
+                              <input type="checkbox"id="status_events">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <p class="pt-2">Display Result:</p>
+                            </div>
+                            <div class="col-sm-1">
+                              <input type="checkbox"id="display_txn_result">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <p class="pt-2">Form:</p>
+                            </div>
+                            <div class="col-sm-6">
+                            <input type="text" class="form-control pr-2" id="form" list="forms" value="CESWIPE.K3Z" />
+                                <datalist id="form">
+                                  <option>ADS.K3Z</option>
+                                  <option>ALPHA.K3Z</option>
+                                  <option>ALPHANEW.K3Z</option>
+                                  <option>AMTV.K3Z</option>
+                                  <option>APPDAPP.K3Z</option>
+                                  <option>BARCODEDISP.HTM</option>
+                                  <option>BARCODESCAN.K3Z</option>
+                                  <option>BARCODEUNDO.K3Z</option>
+                                  <option>CASHB.K3Z</option>
+                                  <option>CASHBA.K3Z</option>
+                                  <option>CASHBO.K3Z</option>
+                                  <option>CASHBV.K3Z</option>
+                                  <option>CCALPHA.K3Z</option>
+                                  <option>CCAP.K3Z</option>
+                                  <option>CCBUTTONS.K3Z</option>
+                                  <option>CCDETAIL.K3Z</option>
+                                  <option>CCINPUT.K3Z</option>
+                                  <option>CCMENU.K3Z</option>
+                                  <option>CCOD.K3Z</option>
+                                  <option>CCSCAN.K3Z</option>
+                                  <option>CELSWIPE.K3Z</option>
+                                  <option>CESWIPE.K3Z</option>
+                                  <option>CLESS.K3Z</option>
+                                  <option>CLSWIPE.K3Z</option>
+                                  <option>COD.K3Z</option>
+                                  <option>CPLSWIPE.K3Z</option>
+                                  <option>CPSWIPE.K3Z</option>
+                                  <option>CSWIPE.K3Z</option>
+                                  <option>EACCOUNT.K3Z</option>
+                                  <option>ECARDREMOVE.K3Z</option>
+                                  <option>ECONFIRM.K3Z</option>
+                                  <option>ELANG.K3Z</option>
+                                  <option>ELSWIPE.K3Z</option>
+                                  <option>EMVMENU.K3Z</option>
+                                  <option>ESWIPE.K3Z</option>
+                                  <option>INPUT.K3Z</option>
+                                  <option>LANG.K3Z</option>
+                                  <option>LSWIPE.K3Z</option>
+                                  <option>MENU.K3Z</option>
+                                  <option>MENUCMD.K3Z</option>
+                                  <option>MSG.K3Z</option>
+                                  <option>MSGTHICK.K3Z</option>
+                                  <option>OFFLINE.K3Z</option>
+                                  <option>PAIRINGIOS.K3Z</option>
+                                  <option>PAIRINGSTD.K3Z</option>
+                                  <option>PAY1.K3Z</option>
+                                  <option>PIN.K3Z</option>
+                                  <option>PLSWIPE.K3Z</option>
+                                  <option>PPALINP.HTM</option>
+                                  <option>PPALPCAN.HTM</option>
+                                  <option>PPWAIT.K3Z</option>
+                                  <option>PRESIGN.K3Z</option>
+                                  <option>PSWIPE.K3Z</option>
+                                  <option>REMOVE.K3Z</option>
+                                  <option>SIGN.K3Z</option>
+                                  <option>SMCINSERT.K3Z</option>
+                                  <option>SMCMSG.K3Z</option>
+                                  <option>SMCUPDATE.K3Z</option>
+                                  <option>SURSWIPE.K3Z</option>
+                                  <option>SWIPE.K3Z</option>
+                                  <option>TC.K3Z</option>
+                                  <option>TCSIGN.K3Z</option>
+                                </datalist>
+                          </div>
+                        </div>
+                          <div class="row">
+                              <div class="col-sm-3">
+                                <p class="pt-2">Manual Entry:</p>
+                              </div>
+                              <div class="col-sm-1">
+                                <input type="checkbox"id="manual_entry">
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                  <p class="pt-2">Language:</p>
+                                </div>
+                                <div class="col-sm-6">
+                                  <select class="form-control" id="language">
+                                    <option value="empty"></option>
+                                    <option value="1">1 - english</option>
+                                    <option value="2">2 - spanish</option>
+                                    <option value="3">3 - french</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="row">
+                              <div class="col-sm-3">
+                                <p class="pt-2">Confirm amount:</p>
+                              </div>
+                                <div class="col-sm-1">
+                                  <input type="checkbox"id="confirm_amount">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-8">
+                                <p class="pt-2">Tnx suspend on Card Read:</p>
+                              </div>
+                                <div class="col-sm-1">
+                                  <input type="checkbox"id="card_read_suspend">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-8">
+                                <p class="pt-2">Tnx suspend on Cashback:</p>
+                              </div>
+                                <div class="col-sm-1">
+                                  <input type="checkbox"id="cashback_suspend">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-8">
+                                <p class="pt-2">Tnx suspend on Payment type:</p>
+                              </div>
+                                <div class="col-sm-1">
+                                  <input type="checkbox"id="payemnt_type_suspend">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-8">
+                                <p class="pt-2">Token Request:</p>
+                              </div>
+                              <div class="col-sm-1">
+                                <input type="checkbox" id="token_request">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-8">
+                                <p class="pt-2">Demo Mode:</p>
+                              </div>
+                              <div class="col-sm-1">
+                                <input type="checkbox"id="demo_mode">
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row pt-2" style="margin-left: 20px;margin-right: 20px;" id="suspendStepsRow">
+                <div class="col-md-12">
+                  <div class="accordion" id="accordionExample">
+                    <div class="card">
+                      <div class="card-header" id="headingInput">
+                        <h5 class="mb-0">
+                         <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#collapseInputJson" aria-controls="collapseInputJson">
+                           JSON
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseInputJson" class="collapse" aria-labelledby="headingInput" data-parent="#accordionExample">
+                        <div class="card-body">
+                          <div class="container-fluid">
+                              <div class="row">  
+                                <div class="col-md-12">
+                                  <textarea id="json_example" rows="4" cols="50">
+                                  </textarea>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">
+                                    <button type="button" id="refresh_example_btn" class="btn btn-secondary">Refresh</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p>Send custom JSON ?</p>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input type="checkbox"id="send_example">
+                                  </div>
+                              </div>
+                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" id="payment_send_btn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+          </div>
+        </div>
+    </div>
+</div>
+</div>

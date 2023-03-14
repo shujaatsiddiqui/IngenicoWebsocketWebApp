@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PromptDefinition>
+  <Lang1 code="en"> <!-- English -->
+    <NonEntry>
+      <Prompt id="0" message="PROMPTINDEX"/>
+      <Prompt id="1" message="Please select language"/>
+      <Prompt id="2" message="Processing... Please wait"/>
+      <Prompt id="3" message="Please slide card" iUP250="Please insert card"/>
+      <Prompt id="4" message="Expired card. Please use another." shortmessage="Expired card. Use another." iWL250="Expired card. Please use another."/>
+      <Prompt id="5" message="Card read error. Try again."/>
+      <Prompt id="6" message="Please select payment type"/>
+      <Prompt id="7" message="Please wait for the cashier"/>
+      <Prompt id="8" message="Cashback correct? $&lt;?ivCASHBACK?&gt;"/>
+      <Prompt id="9" message="Not a sale. Cashback cancelled."/>
+      <Prompt id="10" message="Amount OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="11" message="Processing... please wait"/>
+      <Prompt id="12" message="Invalid card for payment type" shortmessage="Invalid card payment type" iWL250="Invalid card for payment type"/>
+      <Prompt id="13" message="Register &lt;?ivTERMINAL?&gt;" deprecated="yes"/>
+      <Prompt id="14" message="PIN must be 4 to 12 digits" deprecated="yes"/>
+      <Prompt id="15" message="Cashback?"/>
+      <Prompt id="17" message="Cashback limit is $&lt;?ivCB_MAX_TEXT?&gt;"/>
+      <Prompt id="18" message="Invalid amount: $&lt;?ivCASHBACK?&gt;"/>
+      <Prompt id="20" message="Amount must be less than $&lt;?ivAMOUNT?&gt;"/>
+      <Prompt id="21" message="Approved"/>
+      <Prompt id="22" message="Declined"/>
+      <Prompt id="23" message="Transaction cancelled"/>
+      <Prompt id="24" message="Invalid payment type"/>
+      <Prompt id="25" message="Card not accepted"/>
+      <Prompt id="26" message="Encrypting... please wait..." shortmessage="Encrypting...please wait..." iWL250="Encrypting... please wait..."/>
+      <Prompt id="27" message="Please select benefit type" deprecated="yes"/>
+      <Prompt id="28" message="CPEM test card read" deprecated="yes"/>
+      <Prompt id="32" message="Card read cancelled"/>
+      <Prompt id="33" message="Input cancelled"/>
+      <Prompt id="34" message="Signature cancelled"/>
+      <Prompt id="35" message="Please show card to cashier"/>
+      <Prompt id="36" message="Void OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="37" message="Return OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="38" message="Void return OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="40" message="Amount OK?"/>
+      <Prompt id="41" message="$&lt;?ivAMOUNT?&gt; + $&lt;?ivCASHBACK?&gt; = $&lt;?ivTOTAL?&gt;\nAmount OK?"/>
+      <Prompt id="42" message="Please insert your smart card or select a language" shortmessage="Please insert your smart card"/>
+      <Prompt id="77" message="Unable to process transaction"/>
+      <Prompt id="90" message="&lt;?ivEMVAPPNAME?&gt;&lt;br&gt;Please wait..."/>
+      <Prompt id="91" message="Unable to authorize"/>
+      <Prompt id="92" message="Signature accepted"/>
+      <Prompt id="93" message="Input accepted"/>
+      <Prompt id="94" message="Card accepted"/>
+      <Prompt id="95" message="Terms accepted"/>
+      <Prompt id="96" message="Terms declined"/>
+      <Prompt id="97" message="- More -"/>
+      <Prompt id="98" message="Card read error"/>
+      <Prompt id="100" message="Please insert card"/>
+      <Prompt id="101" message="Please remove card"/>
+      <Prompt id="102" message="Please insert card"/>
+      <Prompt id="103" message="Please remove card"/>
+      <Prompt id="120" message="Accept" deprecated="yes"/>
+      <Prompt id="121" message="Decline" deprecated="yes"/>
+      <Prompt id="125" message="English 125" shortmessage="English PROMPT125" deprecated="yes"/>
+      <Prompt id="126" message="Please hand card to cashier"/>
+      <Prompt id="127" message="Too many PIN entry errors" deprecated="yes"/>
+      <Prompt id="128" message="Invalid PIN. Please re-enter"/>
+      <Prompt id="130" message="Debit"/>
+      <Prompt id="131" message="Credit"/>
+      <Prompt id="132" message="EBT Cash"/>
+      <Prompt id="133" message="EBT Foodstamps"/>
+      <Prompt id="134" message="Store Charge"/>
+      <Prompt id="135" message="Thank you for your loyalty"/>
+      <Prompt id="136" message="PayPal"/>
+      <Prompt id="137" message="EMV"/>
+      <Prompt id="153" message="Invalid Account Number"/>
+      <Prompt id="154" message="Invalid Date"/>
+      <Prompt id="155" message="Incorrect Password" deprecated="yes"/>
+      <Prompt id="156" message="Security Code too small"/>
+      <Prompt id="163" message="Rebooting for iOS mode..."/>
+      <Prompt id="164" message="Please ask for assistance"/>
+      <Prompt id="165" message="Please sign and tap OK with pen"/>
+      <Prompt id="166" message="Please slide card or Tap" iUP250="Please insert card or Tap"/>
+      <Prompt id="167" message="Index key is missing"/>
+      <Prompt id="168" message="Please slide card or choose PayPal" shortmessage="Slide card or choose PayPal" iPP350="Slide card or choose PayPal" iWL250="Slide card or choose PayPal" Link2500="Slide card or choose PayPal" />
+      <Prompt id="169" message="Please slide card, tap or choose PayPal" shortmessage="Slide card, tap, choose PayPal" iSC250="Slide card, tap or choose PayPal" iPP350="Slide card, tap, choose PayPal" iWL250="Slide card, tap, choose PayPal" Link2500="Slide card, tap, choose PayPal"/>
+      <Prompt id="170" message="Is this amount OK? $&lt;?ivTOTAL?&gt;" shortmessage="Amount OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="171" message="Please wait for cashier"/>
+      <Prompt id="172" message="Please wait..."/>
+      <Prompt id="173" message="This Lane Closed"/>
+      <Prompt id="174" message="BT Pairing Required"/>
+      <Prompt id="175" message="BT Pairing Mode?"/>
+      <Prompt id="176" message="Scan BT Pairing Code"/>
+      <Prompt id="177" message="BT PIN Type?"/>
+      <Prompt id="178" message="Invalid BT MAC/PIN"/>
+      <Prompt id="179" message="Invalid BT MAC"/>
+      <Prompt id="180" message="Invalid/No BT PIN"/>
+      <Prompt id="181" message="Name: &lt;?ivBLUETOOTHDEVICE?&gt;&lt;br&gt;&lt;br&gt;PIN: &lt;?ivBLUETOOTHPIN?&gt;"/>
+      <Prompt id="182" message="BT pairing failed"/>
+      <Prompt id="183" message="Could not initiate BT pairing"/>
+      <Prompt id="184" message="Signature accepted.  Thank you."/>
+      <Prompt id="185" message="Device name\n"/>
+      <Prompt id="186" message="Number to match\n"/>
+      <Prompt id="187" message="BT pairing succeeded"/>
+      <Prompt id="188" message="BT pairing canceled"/>
+      <Prompt id="189" message="PAIR to replace\nUNPAIR to remove"/>
+      <Prompt id="190" message="Please sign for signature registration."/>
+      <Prompt id="191" message="Please sign above for signature verification." deprecated="yes"/>
+      <Prompt id="192" message="Transaction not&lt;br&gt;started" deprecated="yes"/>
+      <Prompt id="200" message="Debit is available. Would you like to proceed with debit?" deprecated="yes"/>
+      <Prompt id="201" message="Would you like to try your check card?" deprecated="yes"/>
+      <Prompt id="202" message="If this is ATM/Debit card, select Yes." deprecated="yes"/>
+      <Prompt id="203" message="If this is a Check card, select Yes." deprecated="yes"/>
+      <Prompt id="204" message="Debit is available. Proceed with Debit?" deprecated="yes"/>
+      <Prompt id="205" message="Entry timeout\nTransaction cancelled"/>
+      <Prompt id="206" message="Just received an unknown message" deprecated="yes"/>
+      <Prompt id="207" message="Cancelled by customer" deprecated="yes"/>
+      <Prompt id="208" message="Card read error&lt;br&gt;please try again" deprecated="yes"/>
+      <Prompt id="209" message="Invalid card type...&lt;br&gt;ask for assistance" deprecated="yes"/>
+      <Prompt id="210" message="Card not read&lt;br&gt;please ask for assistance" deprecated="yes"/>
+      <Prompt id="211" message="Please select shopping payment type" deprecated="yes"/>
+      <Prompt id="212" message="Entry timeout&lt;br&gt;Transaction cancelled" deprecated="yes"/>
+      <Prompt id="213" message="System Parameters" deprecated="yes"/>
+      <Prompt id="214" message="Exit" deprecated="yes"/>
+      <Prompt id="215" message="Config EFT Levels" deprecated="yes"/>
+      <Prompt id="216" message="Manufacture / Device Id" deprecated="yes"/>
+      <Prompt id="217" message="Config Host Port" deprecated="yes"/>
+      <Prompt id="218" message="Config Test/Debug" deprecated="yes"/>
+      <Prompt id="261" message="Insert card, swipe\nor select a language"/>
+      <Prompt id="268" message="Please remove card"/>
+      <Prompt id="270" message="Select language"/>
+      <Prompt id="271" message="Select application"/>
+      <Prompt id="272" message="Previous"/>
+      <Prompt id="273" message="Next"/>
+      <Prompt id="274" message="Confirm app: %s"/>
+      <Prompt id="275" message="Last PIN try"/>
+      <Prompt id="276" message="PIN try limit exceeded"/>
+      <Prompt id="277" message="Card removed\nTransaction cancelled"/>
+      <Prompt id="278" message="Card problem"/>
+      <Prompt id="279" message="Card problem\nTransaction cancelled"/>
+      <Prompt id="280" message="Authorizing\nPlease wait... Do not remove card" shortmessage="Authorizing\nPlease wait\nDo not remove card"/>
+      <Prompt id="281" message="Card blocked\nRemove card"/>
+      <Prompt id="282" message="System error\nRemove card"/>
+      <Prompt id="283" message="Aborted"/>
+      <Prompt id="284" message="Voice authorization required"/>
+      <Prompt id="285" message="Purchase"/>
+      <Prompt id="286" message="Refund" />
+      <Prompt id="287" message="Please confirm" shortmessage="confirm"/>
+      <Prompt id="288" message="Confirmed. Thank you"/>
+      <Prompt id="289" message="Card problem\nRemove card"/>
+      <Prompt id="290" message="Do not remove card"/>
+      <Prompt id="291" message="Card not supported"/>
+      <Prompt id="292" message="Remove card"/>
+      <Prompt id="293" message="Authorization send failed"/>
+      <Prompt id="294" message="Authorization response timeout"/>
+      <Prompt id="295" message="Authorization confirmation failed"/>
+      <Prompt id="296" message="Not accepted"/>
+      <Prompt id="297" message="PIN OK"/>
+      <Prompt id="298" message="Transaction prep send failed"/>
+      <Prompt id="299" message="Cash back"/>
+      <Prompt id="300" message="Incorrect PIN"/>
+      <Prompt id="301" message="Declined"/>
+      <Prompt id="302" message="Not approved\nApplication expired"/>
+      <Prompt id="303" message="Please wait... Do not remove card" shortmessage="\n\nPlease wait\n\nDo not remove card" iPP320="Please wait...\nDo not remove card" iPP350="Please wait...\nDo not remove card"/>
+      <Prompt id="304" message="Transaction\nchanged\nto\n"/>
+      <Prompt id="305" message="Application not supported"/>
+      <Prompt id="306" message="Insert card in chip reader"/>
+      <Prompt id="307" message="Tap failed insert or swipe card"/>
+      <Prompt id="308" message="Select account"/>
+      <Prompt id="309" message="Authorizing... Please wait" shortmessage="Authorizing\nPlease wait" iWL250="Authorizing\nPlease wait"/>
+      <Prompt id="310" message="System Error"/>
+      <Prompt id="311" message="Please swipe or insert card" iUP250="Please insert card"/>
+      <Prompt id="312" message="Insert, Swipe or Tap Card" iUP250="Insert or Tap Card"/>
+      <Prompt id="313" message="No amount entered\nTransaction cancelled"/>
+      <Prompt id="314" message="Contactless transaction limit exceeded" iPP320="Contactless transaction limit \n exceeded" iPP350="Contactless transaction limit \n exceeded"/>
+      <Prompt id="315" message="Approved"/>
+      <Prompt id="340" message="Card Blocked"/>
+      <Prompt id="341" message="Application Blocked"/>
+      <Prompt id="342" message="Card data invalid"/>
+      <Prompt id="348" message="RESTORE FAILED"/>
+      <Prompt id="349" message="BENEFITS RESTORED"/>
+      <Prompt id="350" message="Please wait"/>
+      <Prompt id="351" message="Accept changes?\nENTER or CANCEL"/>
+      <Prompt id="352" message="Transaction complete"/>
+      <Prompt id="353" message="Transaction cancelled"/>
+      <Prompt id="354" message="WIC update cancelled"/>
+      <Prompt id="355" message="Transaction accepted"/>
+      <Prompt id="356" message="Updating card"/>
+      <Prompt id="357" message="Please insert card"/>
+      <Prompt id="358" message="Card problem\nSee journal message"/>
+      <Prompt id="359" message="Card Error\nReturn to Clinic"/>
+      <Prompt id="360" message="Invalid/Damaged card"/>
+      <Prompt id="361" message="No current WIC"/>
+      <Prompt id="362" message="Authentication failed"/>
+      <Prompt id="363" message="WIC problem\nSee journal message"/>
+      <Prompt id="364" message="Card removed"/>
+      <Prompt id="365" message="Please re-select"/>
+      <Prompt id="366" message="Application not supported\nPlease re-select"/>
+      <Prompt id="367" message="See Phone\nFor Instruction"/>
+      <Prompt id="368" message="Please Re-Tap Card"/>
+      <Prompt id="369" message="Insert"/>
+      <Prompt id="370" message="Swipe"/>
+      <Prompt id="371" message="Tap"/>
+      <Prompt id="372" message="Card"/>
+      <Prompt id="373" message="or"/>
+      <Prompt id="374" message="Please Present One Card Only"/>
+	  <Prompt id="375" message="Fallback. Please remove card"/>
+      <Prompt id="376" message="Void"/>
+      <Prompt id="386" message="Signature Timeout"/>
+      <Prompt id="396" message="Rebooting . . ."/>
+    </NonEntry>
+    <ButtonText>
+      <Button id="0" text="BUTTONINDEX"/>
+      <!-- Variables for button text (1-10)-->
+      <Button id="1" text="&lt;?ivBUTTONTEXT1?&gt;"/>
+      <Button id="2" text="&lt;?ivBUTTONTEXT2?&gt;"/>
+      <Button id="3" text="&lt;?ivBUTTONTEXT3?&gt;"/>
+      <Button id="4" text="&lt;?ivBUTTONTEXT4?&gt;"/>
+      <Button id="5" text="&lt;?ivBUTTONTEXT5?&gt;"/>
+      <Button id="6" text="&lt;?ivBUTTONTEXT6?&gt;"/>
+      <Button id="7" text="&lt;?ivBUTTONTEXT7?&gt;"/>
+      <Button id="8" text="&lt;?ivBUTTONTEXT8?&gt;"/>
+      <Button id="9" text="&lt;?ivBUTTONTEXT9?&gt;"/>
+      <Button id="10" text="&lt;?ivBUTTONTEXT10?&gt;"/>
+      <!-- Standard button text (101- )-->
+      <Button id="101" text="ACCEPT"/>
+      <Button id="102" text="CASHBACK"/>
+      <Button id="103" text="CLEAR"/>
+      <Button id="104" text="CREDIT"/>
+      <Button id="105" text="DEBIT"/>
+      <Button id="106" text="DECLINE"/>
+      <Button id="107" text="EBT CASH" shorttext="EBT&lt;br&gt;CASH"/>
+      <Button id="108" text="EBT FOOD" shorttext="EBT&lt;br&gt;FOOD"/>
+      <Button id="109" text="ENGLISH" Link2500="ENG"/>
+      <Button id="110" text="ENTER CARD"/>
+      <Button id="111" text="ESPAÑOL" Link2500="ESP"/>
+      <Button id="112" text="FRANÇAIS" Link2500="FRAN"/>
+      <Button id="113" text="NO"/>
+      <Button id="114" text="OK"/>
+      <Button id="115" text="OTHER"/>
+      <Button id="116" text="PARTIAL PAYMENT"/>
+      <Button id="117" text="STORE"/>
+      <Button id="118" text="YES"/>
+      <Button id="119" text="BEGIN"/>
+      <Button id="120" text="iOS"/>
+      <Button id="121" text="STANDARD"/>
+      <Button id="122" text="ENTER MAC"/>
+      <Button id="123" text="MANUAL"/>
+      <Button id="124" text="GENERATE"/>
+      <Button id="131" text="CANCEL"/>
+      <Button id="132" text="ENGLISH"/>
+      <Button id="133" text="ESPAÑOL"/>
+      <Button id="134" text="FRANÇAIS"/>
+      <Button id="135" text="YES"/>
+      <Button id="136" text="NO"/>
+      <Button id="137" text="AGREE"/>
+      <Button id="138" text="DIS-&lt;br&gt;AGREE"/>
+      <Button id="139" text="$0"/>
+      <Button id="140" text="$5"/>
+      <Button id="141" text="$10"/>
+      <Button id="142" text="$15"/>
+      <Button id="143" text="$20"/>
+      <Button id="144" text="$25"/>
+      <Button id="145" text="$30"/>
+      <Button id="146" text="$35"/>
+      <Button id="147" text="$40"/>
+      <Button id="148" text="$45"/>
+      <Button id="149" text="$50"/>
+      <Button id="150" text="$55"/>
+      <Button id="151" text="$60"/>
+      <Button id="152" text="$65"/>
+      <Button id="153" text="$70"/>
+      <Button id="154" text="$75"/>
+      <Button id="155" text="$80"/>
+      <Button id="156" text="$85"/>
+      <Button id="157" text="$90"/>
+      <Button id="158" text="$95"/>
+      <Button id="159" text="$100"/>
+      <Button id="160" text="$500"/>
+      <Button id="161" text="$1000"/>
+      <Button id="162" text="MAX"/>
+      <Button id="163" text="OTHER"/>
+      <Button id="164" text="ENGLISH" Link2500="ENG" />
+      <Button id="165" text="ESPAÑOL" Link2500="ESP"/>
+      <Button id="166" text="FRANÇAIS" Link2500="FRAN"/>
+      <Button id="167" text="OK"/>
+      <Button id="168" text="CHANGE&lt;br&gt;AMOUNT"/>
+      <Button id="169" text="NO&lt;br&gt;CASH"/>
+      <Button id="170" text="CHECKING"/>
+      <Button id="171" text="SAVINGS"/>
+      <Button id="172" text="LOAD"/>
+      <Button id="173" text="PAYMENT"/>
+      <Button id="174" text="EBT"/>
+      <Button id="175" text="MORE"/>
+      <Button id="176" text="BACK"/>
+      <Button id="177" text="LANGUAGE" Move3500="LANG" Move5000="LANG" Lane3000="LANG"/>
+      <Button id="178" text="YES"/>
+      <Button id="179" text="NO"/>
+
+    </ButtonText>
+  </Lang1>
+  <Lang2 code="es"> <!-- Spanish -->
+    <NonEntry>
+      <Prompt id="0" message="PROMPTINDEX"/>
+      <Prompt id="1" message="Por favor seleccione idioma"/>
+      <Prompt id="2" message="Procesando... favor de esperar" shortmessage="Procesando, favor esperar"/>
+      <Prompt id="3" message="Por favor deslice su tarjeta" shortmessage="Por favor deslice tarjeta" iWL250="Por favor deslice su tarjeta"/>
+      <Prompt id="4" message="Tarjeta expirada. Favor de usar otra." shortmessage="Tarjeta expirada, use otra." iWL250="Tarjeta expirada. Favor de usar otra."/>
+      <Prompt id="5" message="Error de lectura de tarjeta. Intente de nuevo." shortmessage="Intente de nuevo." iWL250="Error de lectura de tarjeta. Intente de nuevo."/>
+      <Prompt id="6" message="Seleccione tipo de pago"/>
+      <Prompt id="7" message="Por favor espere por el cajero(a)" shortmessage="Espere por el cajero(a)" iWL250="Por favor espere por el cajero(a)"/>
+      <Prompt id="8" message="¿Cantidad correcta? $&lt;?ivCASHBACK?&gt;"/>
+      <Prompt id="9" message="No es una venta. Cashback cancelado." shortmessage="Cashback no permitido." iWL250="No es una venta. Cashback cancelado."/>
+      <Prompt id="10" message="Cantidad correcta? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="11" message="Procesando... favor de esperar" shortmessage="Procesando..." iWL250="Procesando... favor de esperar"/>
+      <Prompt id="12" message="Tarjeta no permitida para ese tipo de pago" shortmessage="Tarjeta no permitida" iWL250="Tarjeta no permitida para ese tipo de pago"/>
+      <Prompt id="13" message="Register &lt;?ivTERMINAL?&gt;" deprecated="yes"/>
+      <Prompt id="14" message="PIN debe ser 4 a 12 dígitos" deprecated="yes"/>
+      <Prompt id="15" message="¿Extraer dinero?"/>
+      <Prompt id="17" message="Limite de cashback es $&lt;?ivCB_MAX_TEXT?&gt;"/>
+      <Prompt id="18" message="Cantidad no permitida: $&lt;?ivCASHBACK?&gt;" shortmessage="Cant. no permitida: $&lt;?ivCASHBACK?&gt;" iWL250="Cantidad no permitida: $&lt;?ivCASHBACK?&gt;"/>
+      <Prompt id="20" message="Cantidad debe ser menos que $&lt;?ivAMOUNT?&gt;" shortmessage="Debe ser menor que $&lt;?ivAMOUNT?&gt;" iWL250="Cantidad debe ser menos que $&lt;?ivAMOUNT?&gt;"/>
+      <Prompt id="21" message="Aprobado"/>
+      <Prompt id="22" message="Denegado"/>
+      <Prompt id="23" message="Transacción cancelada"/>
+      <Prompt id="24" message="Tipo de pago no permitido"/>
+      <Prompt id="25" message="Tarjeta no aceptada"/>
+      <Prompt id="26" message="Codificando... favor de esperar..." shortmessage="Favor de esperar..." iWL250="Codificando... favor de esperar..."/>
+      <Prompt id="27" message="Por favor seleccione tipo de beneficio" shortmessage="Seleccione tipo d beneficio" iWL250="Por favor seleccione tipo de beneficio" deprecated="yes"/>
+      <Prompt id="28" message="Lectura de tarjeta de prueba CPEM" shortmessage="Prueba CPEM" iWL250="Lectura de tarjeta de prueba CPEM" deprecated="yes"/>
+      <Prompt id="32" message="Lectura de tarjeta cancelada" shortmessage="Lectura d tarjeta cancelada" iWL250="Lectura de tarjeta cancelada"/>
+      <Prompt id="33" message="Entrada cancelada"/>
+      <Prompt id="34" message="Firma cancelada"/>
+      <Prompt id="35" message="Por favor muestre su tarjeta al cajero(a)" shortmessage="Muestre su tarjeta" iWL250="Por favor muestre su tarjeta al cajero(a)"/>
+      <Prompt id="36" message="Confirma anulación? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="37" message="Confirma devolución? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="38" message="Confirma anulación de devolución? $&lt;?ivTOTAL?&gt;" shortmessage="Confirma anular devolución?" iWL250="Confirma anulación de devolución? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="40" message="Cantidad correcta?"/>
+      <Prompt id="41" message="$&lt;?ivAMOUNT?&gt; + $&lt;?ivCASHBACK?&gt; = $&lt;?ivTOTAL?&gt;\nMonto Correcto?"/>
+      <Prompt id="42" message="POR FAVOR ISERTE SU TARJETA, O SELECCIONE IDIOMA" shortmessage="ISERTE SU TARJETA"/>
+      <Prompt id="77" message="No se puede procesar transaccion"/>
+      <Prompt id="90" message="&lt;?ivEMVAPPNAME?&gt;&lt;br&gt;Favor de esperar..."/>
+      <Prompt id="91" message="Incapaz de autorizar"/>
+      <Prompt id="92" message="Firma aceptada"/>
+      <Prompt id="93" message="Entrada aceptada"/>
+      <Prompt id="94" message="Tarjeta aceptada"/>
+      <Prompt id="95" message="Condiciones aceptadas"/>
+      <Prompt id="96" message="Condiciones negadas"/>
+      <Prompt id="97" message="- Mas -"/>
+      <Prompt id="98" message="Error de lectura de tarjeta"/>
+      <Prompt id="100" message="Por favor, inserte la tarjeta"/>
+      <Prompt id="101" message="Por favor, retire la tarjeta de forma rápida"/>
+      <Prompt id="102" message="Por favor, inserte la tarjeta"/>
+      <Prompt id="103" message="Por favor, retire la tarjeta de forma rápida"/>
+      <Prompt id="120" message="Aceptar" deprecated="yes"/>
+      <Prompt id="121" message="Denegar" deprecated="yes"/>
+      <Prompt id="125" message="Spanish 125" deprecated="yes"/>
+      <Prompt id="126" message="Por favor pase tarjeta al cajero(a)" shortmessage="Pase tarjeta al cajero(a)" iWL250="Por favor pase tarjeta al cajero(a)"/>
+      <Prompt id="127" message="Demasiados errores de entrada de PIN" shortmessage="Demasiados errores de PIN" iWL250="Demasiados errores de entrada de PIN" deprecated="yes"/>
+      <Prompt id="128" message="PIN incorrecto. Marque de nuevo"/>
+      <Prompt id="130" message="Débito"/>
+      <Prompt id="131" message="Crédito"/>
+      <Prompt id="132" message="Efectivo EBT"/>
+      <Prompt id="133" message="Estampillas EBT"/>
+      <Prompt id="134" message="Cargo de la Tienda"/>
+      <Prompt id="135" message="Gracias por su lealtad"/>
+      <Prompt id="136" message="PayPal"/>
+      <Prompt id="137" message="EMV"/>
+      <Prompt id="153" message="Número de cuenta no válido"/>
+      <Prompt id="154" message="Fecha No Permitida"/>
+      <Prompt id="155" message="Clave incorrecta"/>
+      <Prompt id="156" message="Código de seguridad demasiado pequeño" shortmessage="Código muy pequeño" iWL250="Código de Seguridad demasiado pequeño"/>
+      <Prompt id="163" message="Reinicio en modo iOS..."/>
+      <Prompt id="164" message="Por favor pida ayuda"/>
+      <Prompt id="165" message="Por favor firme y toque OK con el lápiz" shortmessage="Firme y oprima OK" iWL250="Por favor firme y toque OK con el lápiz"/>
+      <Prompt id="166" message="Por favor deslice o toque su tarjeta" shortmessage="Deslice o toque su tarjeta" iWL250="Por favor deslice o toque su tarjeta"/>
+      <Prompt id="167" message="Clave de índice que falta"/>
+      <Prompt id="168" message="Por favor deslice su tarjeta o elija PayPal" shortmessage="Deslice tarjeta o elija PayPal" iPP350="Deslice tarjeta o elija PayPal" iPP320="Deslice o elija PayPal" iWL250="Deslice tarjeta o elija PayPal" Link2500="Deslice tarjeta o elija PayPal"/>
+      <Prompt id="169" message="Por favor deslice o toque su tarjeta o elija PayPal" shortmessage="Deslice, toque, elija PayPal" iSC250="Deslice, toque, elija PayPal" iPP350="Deslice, toque, elija PayPal" iWL250="Deslice, toque, elija PayPal" Link2500="Deslice, toque, elija PayPal"/>
+      <Prompt id="170" message="¿Importe OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="171" message="Por favor espere por el cajero(a)" shortmessage="Espere por el cajero(a)" iWL250="Por favor espere por el cajero(a)"/>
+      <Prompt id="172" message="Favor de esperar..."/>
+      <Prompt id="173" message="Este Carril Cerrado"/>
+      <Prompt id="174" message="Sincronización BT Necesario"/>
+      <Prompt id="175" message="¿BT Modo Sincronización?"/>
+      <Prompt id="176" message="Escanear BT código de sincronización"/>
+      <Prompt id="177" message="¿BT PIN Type?"/>
+      <Prompt id="178" message="Inválido MAC/PIN BT"/>
+      <Prompt id="179" message="Inválido MAC BT"/>
+      <Prompt id="180" message="Inválido/No PIN BT"/>
+      <Prompt id="181" message="Nombre BT: &lt;?ivBLUETOOTHDEVICE?&gt;&lt;br&gt;&lt;br&gt;BT Sincronización...&lt;br&gt;PIN: &lt;?ivBLUETOOTHPIN?&gt;"/>
+      <Prompt id="182" message="BT Sincronización fallado"/>
+      <Prompt id="183" message="No podía inicie la BT sincronización"/>
+      <Prompt id="184" message="Firma aceptado. Gracias"/>
+      <Prompt id="185" message="Nombre del dispositivo\n"/>
+      <Prompt id="186" message="Número para coincidir\n"/>
+      <Prompt id="187" message="BT sincronización éxito"/>
+      <Prompt id="188" message="BT sincronización cancelado"/>
+      <Prompt id="189" message="PAIR para reemplazar\nUNPAIR pour le retirer"/>
+      <Prompt id="190" message="Por favor firme para registrar su firma."/>
+      <Prompt id="191" message="Por favor firme arriba para verificar su firma." deprecated="yes"/>
+      <Prompt id="192" message="Transacción no&lt;br&gt;iniciada" deprecated="yes"/>
+      <Prompt id="200" message="Débito está disponible. Usted desea continuar con débito?" deprecated="yes"/>
+      <Prompt id="201" message="Desearía tratar con su tarjeta bancaria?" deprecated="yes"/>
+      <Prompt id="202" message="Si esta es una tarjeta de Débito, seleccione Sí." deprecated="yes"/>
+      <Prompt id="203" message="Si esta es una tarjeta bancaria o de cheques, seleccione Sí." deprecated="yes"/>
+      <Prompt id="204" message="Débito está disponible. Continuar con débito?" deprecated="yes"/>
+      <Prompt id="205" message="Tiempo excedido\nTransacción cancelada"/>
+      <Prompt id="206" message="Mensaje desconocido fue recibido" deprecated="yes"/>
+      <Prompt id="207" message="Cancelado por el cliente"/>
+      <Prompt id="208" message="Error lectura de tarjeta&lt;br&gt;Re-intentar por favor" deprecated="yes"/>
+      <Prompt id="209" message="Tipo de tarjeta invalida &lt;br&gt;Pida ayuda por favor" deprecated="yes"/>
+      <Prompt id="210" message="Tarjeta no legible pida ayuda" deprecated="yes"/>
+      <Prompt id="211" message="Por favor seleccione tipo de pago" deprecated="yes"/>
+      <Prompt id="212" message="Tiempo consumido&lt;br&gt;Transacción cancelada" deprecated="yes"/>
+      <Prompt id="213" message="Parametros del sistema" deprecated="yes"/>
+      <Prompt id="214" message="Salir"/>
+      <Prompt id="215" message="Configure nivel de EFT" deprecated="yes"/>
+      <Prompt id="216" message="Manufactura / Dispositivo" deprecated="yes"/>
+      <Prompt id="217" message="Configuración del puerto del servidor" deprecated="yes"/>
+      <Prompt id="218" message="Configuración Prueba/Testeo" deprecated="yes"/>
+      <Prompt id="261" message="Inserte/Deslice su trajeta\n o seleccione idioma"/>
+      <Prompt id="268" message="Remover tarjeta por favor" shortmessage="Remover tarjeta"/>
+      <Prompt id="270" message="Seleccionar idioma"/>
+      <Prompt id="271" message="Seleccionar aplicación"/>
+      <Prompt id="272" message="Anterior"/>
+      <Prompt id="273" message="Contiguo"/>
+      <Prompt id="274" message="Confirme apl: %s"/>
+      <Prompt id="275" message="PIN ultimo intento"/>
+      <Prompt id="276" message="Numero de intentos superado"/>
+      <Prompt id="277" message="Tarjeta removida\nTransaccion cancelada"/>
+      <Prompt id="278" message="Problema en la tarjeta"/>
+      <Prompt id="279" message="Problema en la tarjeta\nTransaccion cancelada"/>
+      <Prompt id="280" message="Autorizando\nEspere por favor... No retire la tarjeta" shortmessage="Autorizando\nEspere por favor\nNo retire la tarjeta"/>
+      <Prompt id="281" message="Tarjeta bloqueada\nRetire la tarjeta"/>
+      <Prompt id="282" message="Error de sistema\nRetire la tarjeta"/>
+      <Prompt id="283" message="Abortado"/>
+      <Prompt id="284" message="Requiere autorización de voz"/>
+      <Prompt id="285" message="Compra"/>
+      <Prompt id="286" message="Reembolso"/>
+      <Prompt id="287" message="Por favor confirme"/>
+      <Prompt id="288" message="Confirmado. Gracias"/>
+      <Prompt id="289" message="Problema en la tarjeta\nRetire la tarjeta"/>
+      <Prompt id="290" message="No retire la tarjeta"/>
+      <Prompt id="291" message="Tarjeta no respaldada"/>
+      <Prompt id="292" message="Retire la tarjeta"/>
+      <Prompt id="293" message="Autorizacion de enviar error"/>
+      <Prompt id="294" message="Autorizacion de tiempo de respuesta"/>
+      <Prompt id="295" message="Autorizacion de confirmacion fracasado"/>
+      <Prompt id="296" message="No aceptada"/>
+      <Prompt id="297" message="PIN OK"/>
+      <Prompt id="298" message="Fallo en el envío de la transacción"/>
+      <Prompt id="299" message="Retiro efectivo"/>
+      <Prompt id="300" message="PIN incorrecto"/>
+      <Prompt id="301" message="Declinada"/>
+      <Prompt id="302" message="No aprobado\nAplicación vencida"/>
+      <Prompt id="303" message="Espere por favor... No retire la tarjeta"/>
+      <Prompt id="304" message="Transacción\nmodificada\na"/>
+      <Prompt id="305" message="Aplicación no soportada"/>
+      <Prompt id="306" message="Insertar tarjeta en el lector de tarjeta"/>
+      <Prompt id="307" message="Tarjeta de contacto falló, inserte o deslice la tarjeta"/>
+      <Prompt id="308" message="Seleccione cuenta"/>
+      <Prompt id="309" message="Authorizando... Espere por favor"/>
+      <Prompt id="310" message="Error del sistema"/>
+      <Prompt id="311" message="Favor deslice o inserte tarjeta" shortmessage="Deslice o inserte tarjeta"/>
+      <Prompt id="312" message="Inserte, deslice, o pase"/>
+      <Prompt id="313" message="Valor nulo\n Transacción cancelada"/>
+      <Prompt id="314" message="Limite excedido en transacción de tarjeta sin contacto."/>
+      <Prompt id="315" message="Aprobado"/>
+      <Prompt id="340" message="Tarjeta ha sido bloqueada"/>
+      <Prompt id="341" message="Aplicación ha sido bloqueada"/>
+      <Prompt id="342" message="Tarjeta incorrecto"/>
+      <Prompt id="348" message="ERROR AL RESTAURAR"/>
+      <Prompt id="349" message="BENEFICIOS RESTAURADOS"/>
+      <Prompt id="350" message="Espere por favor"/>
+      <Prompt id="351" message="Aceptar cambiar?\nENTER o CANCEL"/>
+      <Prompt id="352" message="Transaccion completo"/>
+      <Prompt id="353" message="Transaccion cancelado"/>
+      <Prompt id="354" message="WIC actualizar cancelado"/>
+      <Prompt id="355" message="Transaccion aceptada"/>
+      <Prompt id="356" message="Actualizando tarjeta"/>
+      <Prompt id="357" message="Favor inserte tarjeta"/>
+      <Prompt id="358" message="Problema en la tarjeta\nVea mensajes del journal"/>
+      <Prompt id="359" message="Error en la tarjeta\nRegresar a la clínica"/>
+      <Prompt id="360" message="Tarjeta no valida/dañada"/>
+      <Prompt id="361" message="No WIC beneficios"/>
+      <Prompt id="362" message="Fallo durante autenticación"/>
+      <Prompt id="363" message="Problema de WIC\nVea mensajes del journal"/>
+      <Prompt id="364" message="Tarjeta removida"/>
+      <Prompt id="365" message="Por favor, Vuelva a Seleccionar"/>
+      <Prompt id="366" message="Aplicación no soportada\nPor favor, Vuelva a Seleccionar"/>
+      <Prompt id="367" message="Siga instrucciones\nen su telefono"/>
+      <Prompt id="368" message="Favor Pase Tarjeta"/>
+      <Prompt id="369" message="Inserte"/>
+      <Prompt id="370" message="Deslice"/>
+      <Prompt id="371" message="Pase"/>
+      <Prompt id="372" message="Tarjeta"/>
+      <Prompt id="373" message="o"/>
+      <Prompt id="374" message="Por favor presentar una tarjeta solo"/>
+	  <Prompt id="375" message="Fallback. Por favor, retire la tarjeta de forma rápida"/>
+      <Prompt id="376" message="Cancelacion"/>
+      <Prompt id="386" message="Tiempo de Firma Agotado"/>
+      <Prompt id="396" message="Reiniciando . . ."/>
+    </NonEntry>
+    <ButtonText>
+      <Button id="0" text="BUTTONINDEX"/>
+      <!-- Variables for button text (1-10)-->
+      <Button id="1" text="&lt;?ivBUTTONTEXT1?&gt;"/>
+      <Button id="2" text="&lt;?ivBUTTONTEXT2?&gt;"/>
+      <Button id="3" text="&lt;?ivBUTTONTEXT3?&gt;"/>
+      <Button id="4" text="&lt;?ivBUTTONTEXT4?&gt;"/>
+      <Button id="5" text="&lt;?ivBUTTONTEXT5?&gt;"/>
+      <Button id="6" text="&lt;?ivBUTTONTEXT6?&gt;"/>
+      <Button id="7" text="&lt;?ivBUTTONTEXT7?&gt;"/>
+      <Button id="8" text="&lt;?ivBUTTONTEXT8?&gt;"/>
+      <Button id="9" text="&lt;?ivBUTTONTEXT9?&gt;"/>
+      <Button id="10" text="&lt;?ivBUTTONTEXT10?&gt;"/>
+      <!-- Standard button text (101- )-->
+      <Button id="101" text="ACEPTAR"/>
+      <Button id="102" text="CASHBACK"/>
+      <Button id="103" text="BORRAR"/>
+      <Button id="104" text="CRÉDITO"/>
+      <Button id="105" text="DÉBITO"/>
+      <Button id="106" text="NEGADA"/>
+      <Button id="107" text="EFECTIVO"/>
+      <Button id="108" text="COMIDA"/>
+      <Button id="109" text="ENGLISH" Link2500="ENG"/>
+      <Button id="110" text="ENTRE TARJETA" shorttext="ENTRE&lt;br&gt;TARJETA"/>
+      <Button id="111" text="ESPAÑOL"/>
+      <Button id="112" text="FRANÇAIS"/>
+      <Button id="113" text="NO"/>
+      <Button id="114" text="OK"/>
+      <Button id="115" text="OTRO"/>
+      <Button id="116" text="PAGUE MENOS" shorttext="PAGUE&lt;br&gt;MENOS"/>
+      <Button id="117" text="TIENDA"/>
+      <Button id="118" text="SÍ"/>
+      <Button id="119" text="COMENZAR"/>
+      <Button id="120" text="iOS"/>
+      <Button id="121" text="ESTÁNDAR"/>
+      <Button id="122" text="ENTRA MAC" shorttext="ENTRA&lt;br&gt;MAC"/>
+      <Button id="123" text="MANUAL"/>
+      <Button id="124" text="GENERAR"/>
+      <Button id="131" text="CANCEL"/>
+      <Button id="132" text="ENGLISH"/>
+      <Button id="133" text="ESPAÑOL"/>
+      <Button id="134" text="FRANÇAIS"/>
+      <Button id="135" text="SÍ"/>
+      <Button id="136" text="NO"/>
+      <Button id="137" text="ACEPTAR"/>
+      <Button id="138" text="DIS-&lt;br&gt;AGREE"/>
+      <Button id="139" text="$0"/>
+      <Button id="140" text="$5"/>
+      <Button id="141" text="$10"/>
+      <Button id="142" text="$15"/>
+      <Button id="143" text="$20"/>
+      <Button id="144" text="$25"/>
+      <Button id="145" text="$30"/>
+      <Button id="146" text="$35"/>
+      <Button id="147" text="$40"/>
+      <Button id="148" text="$45"/>
+      <Button id="149" text="$50"/>
+      <Button id="150" text="$55"/>
+      <Button id="151" text="$60"/>
+      <Button id="152" text="$65"/>
+      <Button id="153" text="$70"/>
+      <Button id="154" text="$75"/>
+      <Button id="155" text="$80"/>
+      <Button id="156" text="$85"/>
+      <Button id="157" text="$90"/>
+      <Button id="158" text="$95"/>
+      <Button id="159" text="$100"/>
+      <Button id="160" text="$500"/>
+      <Button id="161" text="$1000"/>
+      <Button id="162" text="MAX"/>
+      <Button id="163" text="OTHER"/>
+      <Button id="164" text="ENGLISH" Link2500="ENG"/>
+      <Button id="165" text="ESPAÑOL" Link2500="ESP"/>
+      <Button id="166" text="FRANÇAIS" Link2500="FRAN"/>
+      <Button id="167" text="OK"/>
+      <Button id="168" text="CHANGE&lt;br&gt;AMOUNT"/>
+      <Button id="169" text="NO&lt;br&gt;CASH"/>
+      <Button id="170" text="CHEQUING"/>
+      <Button id="171" text="AHORROS"/>
+      <Button id="172" text="LOCARGA"/>
+      <Button id="173" text="PAGO"/>
+      <Button id="174" text="EBT"/>
+      <Button id="175" text="MÁS"/>
+      <Button id="176" text="ATRAS"/>
+      <Button id="177" text="IDIOMA"/>
+      <Button id="178" text="SÍ"/>
+      <Button id="179" text="NO"/>
+    </ButtonText>
+  </Lang2>
+  <Lang3 code="fr"> <!-- French -->
+    <NonEntry>
+      <Prompt id="0" message="PROMPTINDEX"/>
+      <Prompt id="1" message="Sélectionnez Langue SVP"/>
+      <Prompt id="2" message="Traitement... Attendez SVP"/>
+      <Prompt id="3" message="Glissez la carte SVP"/>
+      <Prompt id="4" message="Carte expirée"/>
+      <Prompt id="5" message="Erreur de lecture. Réessayez"/>
+      <Prompt id="6" message="Choisissez le type de paiement" shortmessage="Choisissez type paiement"/>
+      <Prompt id="7" message="Attendez SVP pour (le/la) caissier/e"/>
+      <Prompt id="8" message="Retrait d'argent? $&lt;?ivCASHBACK?&gt;"/>
+      <Prompt id="9" message="Retrait d'argent annulé"/>
+      <Prompt id="10" message="Montant OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="11" message="Traitement... Attendez SVP"/>
+      <Prompt id="12" message="Carte erronée pour ce type de paiement"/>
+      <Prompt id="13" message="Register &lt;?ivTERMINAL?&gt;" deprecated="yes"/>
+      <Prompt id="14" message="Un NIP va de 4 à 12 chiffres" deprecated="yes"/>
+      <Prompt id="15" message="Retrait d'argent?"/>
+      <Prompt id="17" message="Retrait d'argent limité à $&lt;?ivCB_MAX_TEXT?&gt;"/>
+      <Prompt id="18" message="Montant erroné: $&lt;?ivCASHBACK?&gt;"/>
+      <Prompt id="20" message="Montant dépasse le total $&lt;?ivAMOUNT?&gt;"/>
+      <Prompt id="21" message="Approuvé"/>
+      <Prompt id="22" message="Refusée"/>
+      <Prompt id="23" message="Opération annulée"/>
+      <Prompt id="24" message="Le type nul de Paiement"/>
+      <Prompt id="25" message="Cette carte n'est pas acceptée"/>
+      <Prompt id="26" message="Chiffrement... patientez SVP..."/>
+      <Prompt id="27" message="Choisissez le type d'allocation SVP" deprecated="yes"/>
+      <Prompt id="28" message="Lecture de la carte test CPEM" deprecated="yes"/>
+      <Prompt id="32" message="Lecture de la carte annulée"/>
+      <Prompt id="33" message="Entrée annulée"/>
+      <Prompt id="34" message="Signature annulée"/>
+      <Prompt id="35" message="Montrez carte au cassier SVP"/>
+      <Prompt id="36" message="Annulation OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="37" message="Remboursement OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="38" message="Annuler remboursement OK? $&lt;?ivTOTAL?&gt;" iPP320="Annul. rembours. OK? $&lt;?ivTOTAL?&gt;" iCM122="Annul. rembours. OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="40" message="Montant OK?"/>
+      <Prompt id="41" message="$&lt;?ivAMOUNT?&gt; + $&lt;?ivCASHBACK?&gt; = $&lt;?ivTOTAL?&gt;\nMontant OK?"/>	
+      <Prompt id="42" message="INSERER VOTRE CARTE RAPIDEMENT OU SELECTIONNER LANGUE"/>
+      <Prompt id="77" message="Incapable de traiter l'opération"/>
+      <Prompt id="90" message="&lt;?ivEMVAPPNAME?&gt;&lt;br&gt;Un moment SVP..."/>
+      <Prompt id="91" message="Incapable d'autorise"/>
+      <Prompt id="92" message="Signature acceptée"/>
+      <Prompt id="93" message="Entrée acceptée"/>
+      <Prompt id="94" message="Carte acceptée"/>
+      <Prompt id="95" message="Conditions acceptées"/>
+      <Prompt id="96" message="Conditions refusées"/>
+      <Prompt id="97" message="- Plus -"/>
+      <Prompt id="98" message="Erreur de lecture"/>
+      <Prompt id="100" message="Insérer la carte SVP"/>
+      <Prompt id="101" message="Retirer la carte SVP"/>
+      <Prompt id="102" message="Insérer la carte SVP"/>
+      <Prompt id="103" message="Retirer la carte SVP"/>
+      <Prompt id="120" message="Accepter" deprecated="yes"/>
+      <Prompt id="121" message="Refuse" deprecated="yes"/>
+      <Prompt id="125" message="French 125" deprecated="yes"/>
+      <Prompt id="126" message="Donnez carte au cassier SVP"/>
+      <Prompt id="127" message="Trop d'essais - NIP erroné" deprecated="yes"/>
+      <Prompt id="128" message="NIP erroné. Réssayez"/>
+      <Prompt id="130" message="Débit"/>
+      <Prompt id="131" message="Crédit"/>
+      <Prompt id="132" message="Comptant - EBT"/>
+      <Prompt id="133" message="Bon alimentaire - EBT"/>
+      <Prompt id="134" message="Carte magasin"/>
+      <Prompt id="135" message="Merci de votre fidélité"/>
+      <Prompt id="136" message="PayPal"/>
+      <Prompt id="137" message="EMV"/>
+      <Prompt id="153" message="Numéro de compte non valide"/>
+      <Prompt id="154" message="Date Nulle"/>
+      <Prompt id="155" message="Mot de passe errone" deprecated="yes"/>
+      <Prompt id="156" message="Code de Sécurité trop petit"/>
+      <Prompt id="163" message="Redémarrage en mode iOS..."/>
+      <Prompt id="164" message="Demandez de l'aide SVP"/>
+      <Prompt id="165" message="Signez avec le stylo SVP"/>
+      <Prompt id="166" message="Glissez la carte SVP or TAP"/>
+      <Prompt id="167" message="Clé d'index introuvable"/>
+      <Prompt id="168" message="Glissez carte ou choisissez PayPal"/>
+      <Prompt id="169" message="Glissez carte, touchez ou choisissez PayPal" shortmessage="Glissez, touchez, choisissez PayPal" iSC250="Glissez, touchez, choisissez PayPal" iPP350="Glissez, touchez, choisissez PayPal" iWL250="Glissez, touchez, choisissez PayPal" Link2500="Glissez, touchez, choisissez PayPal"/>
+      <Prompt id="170" message="Montant OK? $&lt;?ivTOTAL?&gt;"/>
+      <Prompt id="171" message="Attendez SVP pour (le/la) caissier/e"/>
+      <Prompt id="172" message="Un moment SVP..."/>
+      <Prompt id="173" message="Cette Voie Fermée"/>
+      <Prompt id="174" message="Pairage BT Nécessaire"/>
+      <Prompt id="175" message="Mode de Pairage BT?"/>
+      <Prompt id="176" message="Scannez code d'Pairage BT"/>
+      <Prompt id="177" message="BT PIN Type?"/>
+      <Prompt id="178" message="Invalide MAC/PIN de BT"/>
+      <Prompt id="179" message="Invalide MAC de BT"/>
+      <Prompt id="180" message="Invalide/No PIN de BT"/>
+      <Prompt id="181" message="BT Nom: &lt;?ivBLUETOOTHDEVICE?&gt;&lt;br&gt;&lt;br&gt;Pairage BT...&lt;br&gt;PIN: &lt;?ivBLUETOOTHPIN?&gt;"/>
+      <Prompt id="182" message="Pairage BT n'a pas"/>
+      <Prompt id="183" message="N'a pas pu initier Pairage BT"/>
+      <Prompt id="184" message="Signature acceptée. Merci."/>
+      <Prompt id="185" message="Nom de l'appareil\n"/>
+      <Prompt id="186" message="Numéro pour correspondre\n"/>
+      <Prompt id="187" message="Pairage BT réussi"/>
+      <Prompt id="188" message="Pairage BT annulé"/>
+      <Prompt id="189" message="PAIR pour remplacer\nUNPAIR pour le retirer"/>
+      <Prompt id="190" message="Signer pour l'enregistrement de la signature."/>
+      <Prompt id="191" message="Signer pour vérification de la signature." deprecated="yes"/>
+      <Prompt id="192" message="Operation non\nDémarrée" deprecated="yes"/>
+      <Prompt id="200" message="Débit est disponible. Voulez-vous procéder à débit" deprecated="yes"/>
+      <Prompt id="201" message="Voulez-vous essayer carte bancaire?" deprecated="yes"/>
+      <Prompt id="202" message="Si c'est une carte ATM/Débit, sélectionner Oui" deprecated="yes"/>
+      <Prompt id="203" message="Si c'est une carte Banquaire, Sélectionner Oui" deprecated="yes"/>
+      <Prompt id="204" message="Débit est disponible. Procéder à débit?" deprecated="yes"/>
+      <Prompt id="205" message="Dépassement temp entrée\nOperation Annulée"/>
+      <Prompt id="206" message="A message inconnue est reçu" deprecated="yes"/>
+      <Prompt id="207" message="Annulée par le client" deprecated="yes"/>
+      <Prompt id="208" message="Erreur lecture carte\nSVP Réessayer" deprecated="yes"/>
+      <Prompt id="209" message="Carte Invalide\nSVP demandez de l'assistance" deprecated="yes"/>
+      <Prompt id="210" message="Carte non lisible\nSVP demandez de l'assistance" deprecated="yes"/>
+      <Prompt id="211" message="SVP sélectionnez le type de paiement d'achats" deprecated="yes"/>
+      <Prompt id="212" message="Dépassement temp entrée;\n Operation annulée" deprecated="yes"/>
+      <Prompt id="213" message="Les Paramètres du Système" deprecated="yes"/>
+      <Prompt id="214" message="Sortir" deprecated="yes"/>
+      <Prompt id="215" message="Config des niveaux EFT" deprecated="yes"/>
+      <Prompt id="216" message="Fabrication / Id périphérique" deprecated="yes"/>
+      <Prompt id="217" message="Config du Port du hote" deprecated="yes"/>
+      <Prompt id="218" message="Config de Test/Debug" deprecated="yes"/>
+      <Prompt id="261" message="Insérer carte, glisser rapidement\nou choisissez une langue"/>
+      <Prompt id="268" message="SVP Retirer Carte"/>
+      <Prompt id="270" message="Choisir Langue"/>
+      <Prompt id="271" message="Choisir Application"/>
+      <Prompt id="272" message="Précédent"/>
+      <Prompt id="273" message="Suivant"/>
+      <Prompt id="274" message="Confirmer App: %s"/>
+      <Prompt id="275" message="Dernier Essai NIP"/>
+      <Prompt id="276" message="Essais NIP Dépassées"/>
+      <Prompt id="277" message="Carte retirée\nOpération Annulée"/>
+      <Prompt id="278" message="Problème Carte"/>
+      <Prompt id="279" message="Problème Carte\nOpération Annulée"/>
+      <Prompt id="280" message="Autorisation\nPatientez SVP... Ne retirez pas la carte" shortmessage="Autorisation\nPatientez SVP\nNe Pas Retirer Carte"/>
+      <Prompt id="281" message="Carte Bloquée\nRetirer Carte"/>
+      <Prompt id="282" message="Erreur du Système\nRetirer Carte"/>
+      <Prompt id="283" message="Annulée"/>
+      <Prompt id="284" message="Autorisation vocale requise"/>
+      <Prompt id="285" message="Achat"/>
+      <Prompt id="286" message="Remboursement"/>
+      <Prompt id="287" message="SVP Confirmer"/>
+      <Prompt id="288" message="Confirmé - Merci"/>
+      <Prompt id="289" message="Problème Carte\nRetirer Carte"/>
+      <Prompt id="290" message="Ne Pas Retirer Carte"/>
+      <Prompt id="291" message="Carte Non Supportée"/>
+      <Prompt id="292" message="Retirer Carte"/>
+      <Prompt id="293" message="Envoie Autorisation Echoué"/>
+      <Prompt id="294" message="Delai Réponse d'autorisation"/>
+      <Prompt id="295" message="Confirmation Autorisation a Echoué"/>
+      <Prompt id="296" message="Pas Accepté"/>
+      <Prompt id="297" message="NIP OK"/>
+      <Prompt id="298" message="Prép Des Opérations Envoi a Echoué"/>
+      <Prompt id="299" message="Remise En Argent"/>
+      <Prompt id="300" message="NIP Incorrect"/>
+      <Prompt id="301" message="Refusée"/>
+      <Prompt id="302" message="Non Approuvée\nApplication Expirée"/>
+	  <Prompt id="303" message="Patientez SVP... Ne Pas Retirer La Carte" shortmessage="\n\nPatientez SVP\n\nNe Pas Retirer Carte" iPP320="Patientez SVP...\nNe Pas Retirer Carte" iPP350="Patientez SVP...\nNe Pas Retirer Carte"/>
+      <Prompt id="304" message="Opération\Changée\nA\n"/>
+      <Prompt id="305" message="Application Non Supportée"/>
+      <Prompt id="306" message="Insérer Carte Dans Lecteur de Puce"/>
+      <Prompt id="307" message="Echec Lect S Contact Insérer/Glisser Carte"/>
+      <Prompt id="308" message="Selectionnez Compte"/>
+      <Prompt id="309" message="Autorisation... Patientez SVP"/>
+      <Prompt id="310" message="Erreur du Systeme"/>
+      <Prompt id="311" message="Glissez ou Inserer la carte SVP"/>
+      <Prompt id="312" message="Inserer, glisser ou tapoter"/>
+      <Prompt id="313" message="Aucun montant entré\nOpération annulée"/>
+      <Prompt id="314" message="Limite Operation Sans Contact Dépassé"/>
+      <Prompt id="315" message="Approuvée"/>
+      <Prompt id="340" message="Carte Bloquée"/>
+      <Prompt id="341" message="Application Bloquée"/>
+      <Prompt id="342" message="Invalide Carte"/>
+      <Prompt id="348" message="RÉTABLISSEMENT DES PRESTATIONS ÉCHOUÉ"/>
+      <Prompt id="349" message="PRESTATIONS RÉTABLIES"/>
+      <Prompt id="350" message="Un moment SVP"/>
+      <Prompt id="351" message="Approuve changements?\nENTRER ou ANNULER"/>
+      <Prompt id="352" message="Opération complet"/>
+      <Prompt id="353" message="Opération Annulée"/>
+      <Prompt id="354" message="WIC reviser annulée"/>
+      <Prompt id="355" message="Opération acceptée"/>
+      <Prompt id="356" message="Actualisation carte"/>
+      <Prompt id="357" message="Inserer carte SVP"/>
+      <Prompt id="358" message="Problème de carte\nVoir journal des messages"/>
+      <Prompt id="359" message="Erreur de carte\nRetour à la clinique"/>
+      <Prompt id="360" message="Carte invalide/endommagée"/>
+      <Prompt id="361" message="Plus de prestation WIC disponible"/>
+      <Prompt id="362" message="L'authentification a échoué"/>
+      <Prompt id="363" message="Problème WIC\nVoir journal des messages"/>
+      <Prompt id="364" message="Carte retirée"/>
+      <Prompt id="365" message="Veuillez Re-sélectionner"/>
+      <Prompt id="366" message="Application Non Supportée\nVeuillez Re-sélectionner"/>
+      <Prompt id="367" message="Consultez Téléphone\nPour Instruction"/>
+      <Prompt id="368" message="Re-Tapoter Carte SVP"/>
+      <Prompt id="369" message="Insérer"/>      
+      <Prompt id="370" message="Glisser"/>      
+      <Prompt id="371" message="Tapoter"/>      
+      <Prompt id="372" message="Carte"/>      
+      <Prompt id="373" message="ou"/>
+      <Prompt id="374" message="SVP présenter une seule carte"/>	
+      <Prompt id="375" message="Fallback. Retirer la carte SVP"/>	  
+      <Prompt id="376" message="Annulation"/>
+      <Prompt id="386" message="Délai Signature Dépassé"/>
+      <Prompt id="396" message="Redémarrage . . ."/>
+    </NonEntry>
+    <ButtonText>
+      <Button id="0" text="BUTTONINDEX"/>
+      <!-- Variables for button text (1-10)-->
+      <Button id="1" text="&lt;?ivBUTTONTEXT1?&gt;"/>
+      <Button id="2" text="&lt;?ivBUTTONTEXT2?&gt;"/>
+      <Button id="3" text="&lt;?ivBUTTONTEXT3?&gt;"/>
+      <Button id="4" text="&lt;?ivBUTTONTEXT4?&gt;"/>
+      <Button id="5" text="&lt;?ivBUTTONTEXT5?&gt;"/>
+      <Button id="6" text="&lt;?ivBUTTONTEXT6?&gt;"/>
+      <Button id="7" text="&lt;?ivBUTTONTEXT7?&gt;"/>
+      <Button id="8" text="&lt;?ivBUTTONTEXT8?&gt;"/>
+      <Button id="9" text="&lt;?ivBUTTONTEXT9?&gt;"/>
+      <Button id="10" text="&lt;?ivBUTTONTEXT10?&gt;"/>
+      <!-- Standard button text (101- )-->
+      <Button id="101" text="APPROUVÉ"/>
+      <Button id="102" text="CASHBACK"/>
+      <Button id="103" text="CLAIRE"/>
+      <Button id="104" text="CRÉDIT"/>
+      <Button id="105" text="DÉBIT"/>
+      <Button id="106" text="REFUSÉ"/>
+      <Button id="107" text="Comptant-EBT" shorttext="ESP&lt;br&gt;EBT"/>
+      <Button id="108" text="Bon alimentaire-EBT" shorttext="ALIM&lt;br&gt;EBT"/>
+      <Button id="109" text="ENGLISH" Link2500="ENG"/>
+      <Button id="110" text="ENTRER CARTE" shorttext="ENTRER&lt;br&gt;CARTE"/>
+      <Button id="111" text="ESPAÑOL"/>
+      <Button id="112" text="FRANÇAIS"/>
+      <Button id="113" text="NON"/>
+      <Button id="114" text="OK"/>
+      <Button id="115" text="AUTRE"/>
+      <Button id="116" text="PAIEMENT PARTIEL" shorttext="PAIEMENT&lt;br&gt;PARTIEL"/>
+      <Button id="117" text="MAGASIN"/>
+      <Button id="118" text="OUI"/>
+      <Button id="119" text="COMMENCER"/>
+      <Button id="120" text="iOS"/>
+      <Button id="121" text="STANDARD"/>
+      <Button id="122" text="ENTRER MAC" shorttext="ENTRER&lt;br&gt;MAC"/>
+      <Button id="123" text="MANUEL"/>
+      <Button id="124" text="GÉNÉRER"/>
+      <Button id="131" text="ANNULER"/>
+      <Button id="132" text="ENGLISH"/>
+      <Button id="133" text="ESPAÑOL"/>
+      <Button id="134" text="FRANÇAIS"/>
+      <Button id="135" text="OUI"/>
+      <Button id="136" text="NON"/>
+      <Button id="137" text="ACCEPTER"/>
+      <Button id="138" text="NE PAS-&lt;br&gt;ACCEPTER"/>
+      <Button id="139" text="$0"/>
+      <Button id="140" text="$5"/>
+      <Button id="141" text="$10"/>
+      <Button id="142" text="$15"/>
+      <Button id="143" text="$20"/>
+      <Button id="144" text="$25"/>
+      <Button id="145" text="$30"/>
+      <Button id="146" text="$35"/>
+      <Button id="147" text="$40"/>
+      <Button id="148" text="$45"/>
+      <Button id="149" text="$50"/>
+      <Button id="150" text="$55"/>
+      <Button id="151" text="$60"/>
+      <Button id="152" text="$65"/>
+      <Button id="153" text="$70"/>
+      <Button id="154" text="$75"/>
+      <Button id="155" text="$80"/>
+      <Button id="156" text="$85"/>
+      <Button id="157" text="$90"/>
+      <Button id="158" text="$95"/>
+      <Button id="159" text="$100"/>
+      <Button id="160" text="$500"/>
+      <Button id="161" text="$1000"/>
+      <Button id="162" text="MAX"/>
+      <Button id="163" text="AUTRES"/>
+      <Button id="164" text="ENGLISH" Link2500="ENG"/>
+      <Button id="165" text="ESPAÑOL" Link2500="ESP"/>
+      <Button id="166" text="FRANÇAIS" Link2500="FRAN"/>
+      <Button id="167" text="OK"/>
+      <Button id="168" text="CHANGE&lt;br&gt;AMOUNT"/>
+      <Button id="169" text="NO&lt;br&gt;CASH"/>
+      <Button id="170" text="CHÈQUES"/>
+      <Button id="171" text="EPARGNE"/>
+      <Button id="172" text="LOAD"/>
+      <Button id="173" text="PAIEMENT"/>
+      <Button id="174" text="EBT"/>
+      <Button id="175" text="PLUS"/>
+      <Button id="176" text="BACK"/>
+      <Button id="177" text="LANGUE"/>
+      <Button id="178" text="OUI"/>
+      <Button id="179" text="NON"/>
+    </ButtonText>
+  </Lang3>
+</PromptDefinition>

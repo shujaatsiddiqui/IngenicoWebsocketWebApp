@@ -1,0 +1,81 @@
+<div class="row pt-1">
+  <div class="col-md-2"></div>
+  <div class="col-md-2 text-right pt-2">
+    <h6 class="modal-title text-right pt-1">Mode:</h6>
+  </div>
+  <div class="col-md-4">
+    <select class="form-control" id="wicMode">
+      <option value="production">Production</option>
+      <option value="training">Training</option>
+      <option value="certification">Certification</option>
+      <option value="certification_training">Certification Training</option>
+    </select>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<div class="row pt-2">
+  <div class="col-md-2"></div>
+  <div class="col-md-2">
+    <h6 class="modal-title text-right pt-1">Date Time:</h6>
+  </div>
+  <div class="col-md-4">
+    <div class="input-group input-group-sm">
+      <input type="text" id="wicDateTime" class="form-control" placeholder="2014-10-01 10:41:24"/>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-2">
+    <h6 class="modal-title text-right pt-1">States:</h6>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <textarea class="form-control rounded-0" id="wicStates" rows="5"></textarea>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<div class="row pt-2" id="suspendStepsRow">
+  <div class="col-md-12">
+    <div class="accordion" id="accordionSuspendSteps">
+      <div class="card">
+        <div class="card-header" id="suspendStepsCard">
+          <h5 class="mb-0">
+           <button class="btn btn-link ing-blue-text" type="button" data-toggle="collapse" data-target="#suspendStepsInput" aria-expanded="true" aria-controls="suspendStepsInput">
+             WIC Suspend steps
+            </button>
+          </h5>
+        </div>
+        <div id="suspendStepsInput" class="collapse show" aria-labelledby="suspendStepsCard" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="container-fluid" id="suspendStepContainer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 pt-2">
+    <h6 class="modal-title text-center">Debit</h6>
+  </div>
+</div>
+<div class="row">
+  <div class="container-fluid">
+    <div class="row clearfix border-bottom">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <table class="table table-hover small-text" id="wicDebitTb">
+          <tr class="tr-header">
+            <th>Item</th>
+            <th>Value</th>
+            <th><a href="javascript:void(0);" style="font-size:18px;" id="wicMissingAddMore" title="Add More Tags"><span class="oi oi-plus"></span></a></th>
+        </table>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>

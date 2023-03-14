@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3">
+      <p class="modal-title text-right" id="common_amount_label"> <small>Amount (in subunits):</small></p>
+    </div>
+    <div class="col-sm-4">
+      <div class="input-group input-group-sm">
+        <input type="number" min="0" max="2000000000" id="common_amount_text" class="form-control">
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3">
+      <p class="modal-title text-right" id="common_cashback_label"> <small>Cashback (in subunits):</small></p>
+    </div>
+    <div class="col-sm-4">
+      <div class="input-group input-group-sm">
+        <input type="number" min="0" max="2000000000" id="common_cashback_text" class="form-control">
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-2">
+      <p class="modal-title text-right pt-2" id="common_type_label"> <small>Payment Type:</small></p>
+    </div>
+    <div class="col-md-4 text-center">
+      <select class="form-control" id="common_payment_type">
+          <option value=""></option>
+          <option value="debit">A (Debit)</option>
+          <option value="credit">B (Credit)</option>
+          <option value="C">C (EBT Cash)</option>
+          <option value="D">D (EBT Foodstamps)</option>
+          <option value="E">E (Store Charge)</option>
+          <option value="F">F (Loyalty)</option>
+          <option value="G">G (PayPal)</option>
+          <option value="H">H</option>
+          <option value="I">I</option>
+          <option value="J">J</option>
+          <option value="K">K</option>
+          <option value="L">L</option>
+          <option value="M">M</option>
+          <option value="N">N</option>
+          <option value="O">O</option>
+          <option value="P">P</option>
+        </select>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <div class="row pt-2">
+    <div class="container-fluid">
+      <div class="row clearfix border-bottom">
+        <div class="col-md-12">
+          <table class="table table-hover small-text" id="common_tb">
+            <tr class="tr-header">
+              <th>Tag</th>
+              <th>Encoding</th>
+              <th>Data</th>
+              <th><a href="javascript:void(0);" style="font-size:18px;" id="commonAddMore" title="Add More Tags"><span class="oi oi-plus"></span></a></th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-md-12 text-center">
+      <button id="suspend_send_btn" class="btn btn-default btn-sm" data-dismiss="modal">Send</button>
+    </div>
+  </div>
+</div>

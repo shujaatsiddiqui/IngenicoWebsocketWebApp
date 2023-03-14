@@ -1,0 +1,80 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false" data-keyboard="false" >
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Missing Data</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+              <p class="modal-title text-right" id="missing_amount_label"> <small>Amount (in subunits):</small></p>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm">
+                <input type="number" min="0" max="2000000000" step="1" id="missing_amount_text" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+              <p class="modal-title text-right" id="missing_cashback_label"> <small>Cashback (in subunits):</small></p>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm">
+                <input type="number" min="0" max="2000000000" step="1" id="missing_cashback_text" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-2">
+              <p class="modal-title pt-2 text-right" id="missing_type_label"> <small>Payment Type:</small></p>
+            </div>
+            <div class="col-md-4 text-center">
+              <select class="form-control" id="missing_payment_type">
+                      <option value=""></option>
+                      <option value="debit">A (Debit)</option>
+                      <option value="credit">B (Credit)</option>
+                      <option value="C">C (EBT Cash)</option>
+                      <option value="D">D (EBT Foodstamps)</option>
+                      <option value="E">E (Store Charge)</option>
+                      <option value="F">F (Loyalty)</option>
+                      <option value="G">G (PayPal)</option>
+                    </select>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <div class="row pt-2">
+            <div class="col-sm-12">
+              <p class="modal-title text-center" id="tag_table_label"> <small>Tags</small></p>
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="container-fluid">
+              <div class="row clearfix border-bottom">
+                <div class="col-md-12">
+                  <table class="table table-hover small-text" id="missingTb">
+                    <tr class="tr-header">
+                      <th>Tag</th>
+                      <th>Encoding</th>
+                      <th>Data</th>
+                      <th><a href="javascript:void(0);" style="font-size:18px;" id="missingAddMore" title="Add More Tags"><span class="oi oi-plus"></span></a></th>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="missing_data_send_btn" class="btn btn-primary ing-blue" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

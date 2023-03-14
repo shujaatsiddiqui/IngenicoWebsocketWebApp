@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "request": {
+            "custom_amount": {
+                "tsi_tag": "1"
+            }
+        }
+    },
+    "transaction": {
+        "type" : {
+            "custom_sale_transaction" : {
+                "tsi_tag": "0"
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\tools",
+    "\\tools\\upp",
+    "\\tools\\upp\\uwtt",
+    "\\tools\\upp\\uwtt\\Action",
+    "\\tools\\upp\\uwtt\\Action\\Device",
+    "\\tools\\upp\\uwtt\\Action\\Device\\js",
+    "\\tools\\upp\\uwtt\\Action\\UPP",
+    "\\tools\\upp\\uwtt\\Action\\UPP\\Payment",
+    "\\tools\\upp\\uwtt\\Action\\UPP\\Payment\\js"
+  ],
+  "SelectedNode": "\\tools\\upp\\uwtt\\Action\\Device\\js\\device.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,136 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false"
+    data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Terminal Capabilities</h5>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    <fieldset style="border: groove;padding: 0px 0px 8px 24px;">
+                        <legend style="width: max-content;">Card data input capabilities (1st byte)</legend>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="manual_key_entry" checked />
+                                    <label class="custom-control-label" for="manual_key_entry">manual key entry</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Magnetic_stripe" checked />
+                                    <label class="custom-control-label" for="Magnetic_stripe">Magnetic stripe</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="IC_with_contacts" checked />
+                                    <label class="custom-control-label" for="IC_with_contacts">IC with contacts</label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset style="border: groove;padding: 0px 0px 8px 24px;">
+                        <legend style="width: max-content;">CVM capabilities (2nd byte)</legend>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="Plaintext_PIN_for_ICC_verification" checked />
+                                    <label class="custom-control-label"
+                                        for="Plaintext_PIN_for_ICC_verification">Plaintext
+                                        PIN for ICC verification</label>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="Enciphered_PIN_for_online_verification" checked />
+                                    <label class="custom-control-label"
+                                        for="Enciphered_PIN_for_online_verification">Enciphered PIN for online
+                                        verification</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Signature" checked />
+                                    <label class="custom-control-label" for="Signature">Signature</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="Enciphered_PIN_for_offline_verification" checked />
+                                    <label class="custom-control-label"
+                                        for="Enciphered_PIN_for_offline_verification">Enciphered PIN for offline
+                                        verification</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="No_CVM_required" checked />
+                                    <label class="custom-control-label" for="No_CVM_required">No CVM Required</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset style="border: groove;padding: 0px 0px 8px 24px;">
+                        <legend style="width: max-content;">Security capability (3rd byte)</legend>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="SDA" checked />
+                                    <label class="custom-control-label" for="SDA">SDA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="DDA" checked />
+                                    <label class="custom-control-label" for="DDA">DDA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Card_capture" />
+                                    <label class="custom-control-label" for="Card_capture">Card capture</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="CDA" checked />
+                                    <label class="custom-control-label" for="CDA">CDA</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="update_terminal_capabilities_btn" class="btn btn-primary ing-blue"
+                    data-dismiss="modal">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

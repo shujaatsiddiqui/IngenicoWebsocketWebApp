@@ -1,0 +1,115 @@
+/*
+IE doesn't support variables, keep it just for reference
+*/
+:root {
+  --ingenico-color: rgba(201,23,28,1);
+  --ingenico-light-color: rgba(201,23,28,0.7);
+  --ingenico-dark-color: rgba(181,03,03,1);
+}
+
+.navbar {
+    background-color: rgba(201,23,28,1) !important;
+    color: white !important;
+}
+
+.navbar-nav li a, a.navbar-brand {
+    background-color: rgba(201,23,28,1) !important;
+    color: #ffffff !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: rgba(201,23,28,1);
+  border-color: rgba(201,23,28,1);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: rgba(181,03,03,1);
+  border-color: red;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(201,23,28,1);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: rgba(201,23,28,1);
+  border-color: rgba(201,23,28,0.7);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(181,03,03,1);
+}
+
+.dropdown-item {
+  color: rgba(201,23,28,1);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: white;
+  background-color: rgba(201,23,28,1);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  background-color: rgba(201,23,28,1);
+}
+
+.dropdown-item.disabled, .dropdown-item:disabled {
+  color: rgba(201,23,28,1);
+  background-color: transparent;
+}
+
+.modal-header {
+    color: white;
+    background-color: rgba(201,23,28,1);
+}
+.modal-title {
+    color: white;
+}
+
+.bar-progress { 
+  background-color: rgba(201,23,28,0.7) !important;
+}
+
+.bar-info { 
+  background-color: rgba(201,23,28,1) !important;
+}
+
+.bar-success { 
+  background-color: rgba(201,23,28,1) !important;
+}
+
+.bar-danger {
+  background-color: red !important;
+}
+
+h1, h2, h3, h4 {
+  color: rgba(201,23,28,1) !important;
+}
+
+.error-message {
+  color: red !important;
+}
+
+.output {
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: left;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.modal-fitted {
+    max-width: fit-content;
+    max-width: -moz-fit-content;
+}

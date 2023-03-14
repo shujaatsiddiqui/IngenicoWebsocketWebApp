@@ -1,0 +1,71 @@
+<div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog"  data-dismiss="modal" data-toggle="modal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Device</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <!-- "&times;" gives warning on Firefox. Using 0x00D7 Unicode character instead -->
+                  <span aria-hidden="true">&#xd7;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-md-1 text-center">
+                  <button id="device_info_btn" class="btn btn-default btn-sm" data-dismiss="modal">INFO</button>
+                </div>
+                <div class="col-md-3 text-center">
+                  <button id="device_reset_btn" class="btn btn-default btn-sm btn-device-reset" data-dismiss="modal">RESET</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="device_disconnect_btn" class="btn btn-default btn-sm btn-device-card-read-disconnect" data-dismiss="modal">DISCONNECT</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="device_datetime_btn" class="btn btn-default btn-sm" data-dismiss="modal">DATE</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="device_language_btn" class="btn btn-default btn-sm" data-dismiss="modal">LANGUAGE</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="device_reboot_btn" class="btn btn-danger btn-sm" data-dismiss="modal">REBOOT</button>
+                </div>
+              </div>
+              <!-- Second row -->
+              <div class="row pb-3">
+                <div class="col-md-1 text-center">
+                  <button id="device_beep_btn" class="btn btn-default btn-sm" data-dismiss="modal">BEEP</button>
+                </div>
+                <div class="col-md-3 text-center">
+                  <button id="device_reset_keep_form_btn" class="btn btn-default btn-sm btn-device-reset" data-dismiss="modal">RESET but keep form</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="device_card_read_btn" class="btn btn-default btn-sm btn-device-card-read-disconnect" data-dismiss="modal">CARD READ</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="qsr_btn" class="btn btn-default btn-sm" data-dismiss="modal">QSR</button>
+                  <button id="card_status_btn" class="btn btn-default btn-sm" data-dismiss="modal">CARD STATUS</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="hosts_btn" class="btn btn-default btn-sm" data-dismiss="modal">HOSTS</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="device_update_btn" class="btn btn-warning btn-sm" data-dismiss="modal">UPDATE</button>
+                </div>
+              </div>
+              <!-- Third row -->
+              <div class="row pb-3">
+                <div class="col-md-1 text-center">
+                  <button id="profile_btn" class="btn btn-default btn-sm" data-dismiss="modal">Profile</button>
+                </div>
+                <div class="col-md-3 text-center">
+                  <button id="fleet_card_prompts_btn" class="btn btn-default btn-sm" data-dismiss="modal">Fleet Card Prompts</button>
+                </div>
+                <div class="col-md-2 text-center">
+                  <button id="variables_btn" class="btn btn-default btn-sm" data-dismiss="modal">Variables</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,124 @@
+  <div class="row pt-1">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 text-right pt-2">
+      <h6>Payment Type:</h6>
+    </div>
+    <div class="col-md-6 text-center">
+      <select class="form-control" id="payment_paymen_type">
+        <option value=""></option>
+        <option value="debit">A (Debit)</option>
+        <option value="credit">B (Credit)</option>
+        <option value="fleet">Fleet</option>
+      </select>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row pt-1">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 text-right pt-2">
+      <h6>VAS Mode:</h6>
+    </div>
+    <div class="col-md-6 text-center">
+      <select class="form-control" id="vas_mode">
+        <option value=""></option>
+        <option value="vas_and_payment">Dual Mode</option>
+        <option value="vas_or_payment">Single Mode</option>
+        <option value="vas_only">Vas Only</option>
+        <option value="payment_only">Payment Only</option>
+      </select>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <h6 class="modal-title text-right pt-1">Cashback (in subunits):</h6>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <input type="number" min="0" max="2000000000" step="1" id="cashback"  class="form-control"
+        onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <h6 class="modal-title text-right pt-1">Surcharge (in subunits):</h6>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <input type="number" min="0" max="2000000000" step="1" id="surcharge" class="form-control"
+        onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <h6 class="modal-title text-right pt-1">Tax (in subunits):</h6>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group input-group-sm">
+          <input type="number" min="0" max="2000000000" step="1" id="tax" class="form-control"
+          onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <h6 class="modal-title text-right pt-1">VAT (in subunits):</h6>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group input-group-sm">
+          <input type="number" min="0" max="2000000000" step="1" id="vat" class="form-control"
+          onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <h6 class="modal-title text-right pt-1">Tip (in subunits):</h6>
+        </div>
+        <div class="col-md-4">
+          <div class="input-group input-group-sm">
+            <input type="number" min="0" max="2000000000" step="1" id="tip" class="form-control"
+            onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <h6 class="modal-title text-right pt-1">Total (in subunits):</h6>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group input-group-sm">
+              <input type="number" min="0" max="2000000000" step="1" id="total" class="form-control"
+              onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <h6 class="modal-title text-right pt-1">Prompt Card Removal on Error:</h6>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <select class="form-control" id="prompt_card_removal_on_error">
+          <option value=""></option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>

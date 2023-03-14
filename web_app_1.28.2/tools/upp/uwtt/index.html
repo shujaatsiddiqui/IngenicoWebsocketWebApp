@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UWTT - UPP WS Test Tool</title>
+    <link rel="stylesheet" href="3rdParty/bootstrap-4.0.0/css/bootstrap.min.css">
+    <link href="3rdParty/open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/grid-specific.css">
+    <link rel="icon" href="data:,">
+    <script src="3rdParty/jquery/jquery-3.2.1.js"></script>
+    <script src="3rdParty/popper/popper.min.js"></script>
+    <script src="3rdParty/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+    <script src="3rdParty/ace/src-min/ace.js"></script>
+    <script src="js/uwtt.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/json_editor.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/flow_id.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/message.js"></script>
+    <script src="js/text_file.js"></script>
+    <script src="js/request_session.js"></script>
+    <script src="js/tracer.js"></script>
+    <script src="js/signature_pad.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="Action/FormEntry/js/table.js"></script>
+    <script src="Action/FormEntry/js/form_entry.js"></script>
+    <script src="Action/FormUpdate/js/form_update.js"></script>
+    <script src="Action/FormEntry/InputType/js/input_type_factory.js"></script>
+    <script src="Action/FormEntry/InputType/js/numeric.js"></script>
+    <script src="Action/FormEntry/InputType/js/alphanumeric.js"></script>
+    <script src="Action/FormEntry/InputType/js/menu.js"></script>
+    <script src="Action/FormEntry/InputType/js/pin.js"></script>
+    <script src="Action/FormEntry/InputType/js/signature.js"></script>
+    <script src="Action/FormEntry/InputType/js/tc.js"></script>
+    <script src="Action/LineDisplay/js/line_display.js"></script>
+    <script src="Action/Device/js/device_datetime.js"></script>
+    <script src="Action/Device/js/device_language.js"></script>
+    <script src="Action/Device/js/device_cardread.js"></script>
+    <script src="Action/Device/js/device_beep.js"></script>
+    <script src="Action/Device/js/device_qsr.js"></script>
+    <script src="Action/Device/js/device.js"></script>
+    <script src="Action/Device/js/version_request.js"></script>
+    <script src="Action/Device/js/device_variables.js"></script>
+    <script src="Action/FormEntry/ResultView/js/text.js"></script>
+    <script src="Action/FormEntry/ResultView/js/image.js"></script>
+    <script src="Action/FormEntry/ResultView/js/canvas.js"></script>
+    <script src="Action/FormEntry/ResultView/js/signature_pad.js"></script>
+    <script src="Action/Configuration/js/configuration.js"></script>
+    <script src="Action/Printing/js/printing.js"></script>
+    <script src="Action/Audio/js/audio.js"></script>
+    <script src="Action/Barcode/js/barcode.js"></script>
+    <script src="Action/Barcode/js/barcode_config.js"></script>
+    <script src="Action/Barcode/js/generate_barcode.js"></script>
+
+    <script src="Action/UPP/File/js/file.js"></script>
+    <script src="Action/UPP/File/js/binary_data.js"></script>
+    <script src="Action/UPP/File/js/progress.js"></script>
+    <script src="Action/UPP/Payment/js/payment.js"></script>
+    <script src="Action/UPP/Payment/js/payment_status.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/js/missing_data.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/js/update_terminal_capabilities.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/js/auth_request.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/js/suspended.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/js/regular_payment.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/Suspend/js/update.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/Suspend/js/bin_check.js"></script>
+    <script src="Action/UPP/Payment/Type/Regular/Suspend/js/read.js"></script>
+    <script src="Action/UPP/Payment/Type/Manual/js/manual_entry_payment.js"></script>
+    <script src="Action/UPP/Payment/Type/WIC/js/wic_payment.js"></script>
+    <script src="Action/UPP/Payment/Type/WIC/js/wic_missing_data.js"></script>
+    <script src="Action/UPP/Payment/Type/WIC/js/wic_suspended.js"></script>
+    <script src="Action/UPP/Payment/Type/BinCheck/js/bin_check.js"></script>
+    <script src="Action/UPP/Payment/Type/AddOn/js/add_on.js"></script>
+    <script src="Action/UPP/Security/js/security.js"></script>
+    <script src="Action/UPP/Security/SecurityType/js/info.js"></script>
+    <script src="Action/UPP/Security/SecurityType/js/rsa.js"></script>
+    <script src="Action/UPP/Security/SecurityType/js/voltage.js"></script>
+    <script src="Action/UPP/Security/SecurityType/js/sec_type_factory.js"></script>
+    <script src="Action/UPP/Security/SecurityType/js/maccalculation.js"></script>
+    <script src="Action/UPP/Security/SecurityType/js/macverification.js"></script>
+    <script src="Action/UPP/Security/SecurityType/js/injectsessionkey.js"></script>
+
+    <script src="Action/UPP/Update/js/update.js"></script>
+    <script src="Action/UPP/FlowId/js/flow_id.js"></script>
+
+    <script src="Action/USI/UsiPayment/js/payment.js"></script>
+    <script src="Action/USI/UsiPayment/js/payment_status.js"></script>
+    <script src="Action/USI/UsiPayment/Type/UsiRegular/js/auth_request.js"></script>
+    <script src="Action/USI/UsiPayment/Type/UsiRegular/js/regular_payment.js"></script>
+    <script src="Action/USI/UsiPayment/Type/UsiRegular/js/suspended.js"></script>
+    <script src="Action/USI/UsiPayment/Type/UsiRegular/js/usi_receipt.js"></script>
+    <script src="Action/USI/Update/js/update.js"></script>
+    <script src="Action/USI/Log/js/log.js"></script>
+    <script>
+    $(function() {
+        UWTT.init();
+    });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ing-red">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">UWTT - <var id="application">UPP</var> WS Test Tool - <var id="version">version</var></a>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="nav navbar-nav ml-auto ing-red">
+                <li class="nav-link"><a href="help/toc.html" target="_blank" class="text-white">Help</a></li>
+                <li class="nav-link"><a href="#" class="text-white" id="settingsAnchor">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid main-container">
+        <div class="row pt-2">
+          <div class="col-2">
+              <div class="list-group">
+                  <button type="button" class="list-group-item list-group-item-action text-center" id="payment_entry_btn">Payment</button>
+              </div>
+          </div>
+            <div class="col-2">
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="form_entry_btn">Form Entry</button>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="form_update_btn">Form Update</button>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="line_disp_entry_btn">Line Display</button>
+                </div>
+            </div>
+            <div class="col-2">
+              <div class="list-group">
+                  <button type="button" class="list-group-item list-group-item-action text-center" id="printing_btn">Printing</button>
+              </div>
+            </div>
+        </div>
+        <div class="row pt-2">
+          <div class="col-2">
+              <div class="list-group">
+                  <button type="button" class="list-group-item list-group-item-action text-center" id="device_btn">Device</button>
+              </div>
+          </div>
+          <div class="col-2">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action text-center" id="config_btn">Configuration</button>
+            </div>
+          </div>
+          <div class="col-2">
+              <div class="list-group">
+                  <button type="button" class="list-group-item list-group-item-action text-center" id="audio_btn">Audio</button>
+              </div>
+          </div>
+          <div class="col-2">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action text-center" id="barcode_btn">Barcode</button>
+              </div>
+          </div>
+          <div class="col-2" >
+            <div class="row " style="display: contents;">
+                <div class="list-group col-14" id="update_section">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="update_btn">Update</button>
+                </div>
+                <div class="list-group col-14" id="security_section">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="security_btn">Security</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-2">
+          <div class="col-2" >
+            <div class="row " style="display: contents;">
+                <div class="list-group col-14" id="log_section">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="log_btn">Log</button>
+                </div>
+                <div class="list-group col-14" id="file_section">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="file_btn">File</button>
+                </div>
+            </div>
+          </div>
+            <div class="col-2">
+                <div class="list-group col-14">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="version_btn">Version</button>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="list-group col-14" id="upp_update_section">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="upp_update_btn">Update</button>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="list-group col-14" id="upp_flow_id_section">
+                    <button type="button" class="list-group-item list-group-item-action text-center" id="upp_flow_id_btn">FlowID Status</button>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2">
+          <div class="col-md-12">
+            <p class="text-left text-primary" id="action_status_text"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="list-group-item list-group-item-action text-center" id="resume_suspended_btn">Resume Suspended Payment...</button>
+          </div>
+        </div>
+        <div class="row last-row pb-1">
+            <div class="col-md-11 pt-1">
+                <div id="json_viewer" class="json-viewer-editor"></div>
+            </div>
+            <div class="col-md-1 pt-2">
+                <span class="input-group-btn">
+                    <button id="clear_btn" class="btn btn-secondary w-100">Clear</button>
+                </span>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="auto_scroll_chbx" value="" checked> Auto Scroll
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="txt">
+        <textarea class="txt" name="frame_content" id="json_viewer_content" style="display:none;"></textarea>
+    </div>
+
+    <div id="modal_content"></div>
+    <script>
+        fetch('version.txt')
+        .then(response => response.text())
+        .then(function(data){
+            $("#version").text(data);
+        })
+        fetch('config.txt')
+                .then(response => response.text())
+        .then(function(data){
+            if (data == "UPP") {
+                $("#application").text("UPP");
+                window.document.title = "UWTT - UPP WS Test Tool";
+            } else if (data == "USI") {
+                $("#application").text("USI");
+                window.document.title = "UWTT - USI WS Test Tool";
+            } else if (Cookie.get("protocol") == 1) {
+                $("#application").text("USI");
+                window.document.title = "UWTT - USI WS Test Tool";
+            } else {
+                $("#application").text("UPP");
+                window.document.title = "UWTT - UPP WS Test Tool";
+            }
+        });
+
+    </script>
+</body>
+
+</html>

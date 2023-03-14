@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="modal-title"> <small>prompt:</small></p>
+    </div>
+    <div class="col-sm-8">
+      <div class="input-group input-group-sm">
+        <input type="text" id="signaturePrompt" class="form-control"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="modal-title"> <small>format:</small></p>
+	</div>
+    <div class="col-sm-8">
+      <select class="form-control" id="signatureFormat">
+	    <option value=" "></option> 
+	    <option value="bmp_base64">bmp_base64</option>
+        <option value="legacy_3byte_ascii">legacy_3byte_ascii</option>
+        <option value="html5_png_base64">html5_png_base64</option>
+        <option value="html5_point_array">html5_point_array</option>
+      </select>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-md-12 text-center">
+      <button id="input_add_row" class="btn btn-default btn-sm">Add</button>
+    </div>
+  </div>
+</div>
