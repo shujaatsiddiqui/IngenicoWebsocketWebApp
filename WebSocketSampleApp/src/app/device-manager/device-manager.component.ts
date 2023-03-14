@@ -13,8 +13,12 @@ import { Message, WebsocketService } from 'src/Services/websocket.service';
 })
 export class DeviceManagerComponent {
 
+  subject! : WebSocketSubject<unknown>;
   settings: SettingsDTO = new SettingsDTO();
   constructor(private websocketService: WebsocketService) {
+
+    this.subject = webSocket(this.settings.host);
+
 
     // this.websocketService.messages.subscribe({
     //   next: msg => console.log('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
@@ -45,15 +49,14 @@ export class DeviceManagerComponent {
     //this.websocketService.messages.next(message.content);
 
     // without service
-    const subject = webSocket(this.settings.host);
 
-    subject.subscribe({
+    this.subject.subscribe({
       next: msg => console.log('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
       error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
       complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
     });
 
-    subject.next(root);
+    this.subject.next(root);
 
 
   }
