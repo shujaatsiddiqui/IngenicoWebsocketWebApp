@@ -1,6 +1,10 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { webSocket } from 'rxjs/webSocket';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { FlowId } from 'src/Helper/FlowIdHelper';
+import { RequestDTO, RequestRoot, ResourceDTO } from 'src/models/RequestDTO';
+import { SettingsDTO } from 'src/models/SettingsDTO.model';
+import { Message, WebsocketService } from 'src/Services/websocket.service';
 
 @Component({
   selector: 'app-device-manager',
@@ -9,12 +13,39 @@ import { webSocket } from 'rxjs/webSocket';
 })
 export class DeviceManagerComponent {
 
-  url: string = "ws://192.168.86.47:50000/";
+  settings: SettingsDTO = new SettingsDTO();
+  constructor(private websocketService: WebsocketService) {
 
-  GetDeviceInfo() {
+    // this.websocketService.messages.subscribe({
+    //   next: msg => console.log('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
+    //   error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+    //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+    // });
 
-    debugger;
-    const subject = webSocket(this.url);
+  }
+
+  //url: string = "ws://192.168.86.47:50000/";
+
+  Beep() {
+
+    //this.websocketService.connect(this.settings.host);
+
+    var message = new Message();
+    var root = new RequestRoot();
+    var requestObj = new RequestDTO() ;
+    requestObj.endpoint = "/upp/v1/device";
+    requestObj.flow_id = FlowId.generate();
+    requestObj.resource = new ResourceDTO();
+    requestObj.resource.duration = "click_length";
+    requestObj.resource.tone = "low";
+    requestObj.resource.type = "beep";
+    root.request = requestObj;
+    message.content = root;
+
+    //this.websocketService.messages.next(message.content);
+
+    // without service
+    const subject = webSocket(this.settings.host);
 
     subject.subscribe({
       next: msg => console.log('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
@@ -22,42 +53,13 @@ export class DeviceManagerComponent {
       complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
     });
 
-    // '{"request":{"flow_id":"171067","resource":{"type":"beep","tone":"low","duration":"click_length"}}}';
-    var textmsg = JSON.stringify(new Root());
-
-    subject.next(new Root());
+    subject.next(root);
 
 
   }
 
 }
 
-class Root {
-  constructor()
-  {
-    this.request = new Request();
-  }
-  request!: Request
-}
 
-class Request {
-  constructor()
-  {
-    this.resource = new Resource();
-  }
-  flow_id: string = "836198"
-  endpoint: string = "/upp/v1/device"
-  resource!: Resource
-}
-
-class Resource {
-  type: string = "beep"
-  tone: string = "low"
-  duration: string = "click_length"
-}
-
-class MessageEventDTO {
-  public type: string | undefined = "Info";
-}
 
 
