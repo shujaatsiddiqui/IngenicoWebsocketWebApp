@@ -1,10 +1,8 @@
-import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { FlowId } from 'src/Helper/FlowIdHelper';
 import { RequestDTO, RequestRoot, ResourceDTO } from 'src/models/RequestDTO';
 import { SettingsDTO } from 'src/models/SettingsDTO.model';
-import { Message, WebsocketService } from 'src/Services/websocket.service';
+import { WebsocketService } from 'src/Services/websocket.service';
 
 @Component({
   selector: 'app-device-manager',
@@ -13,30 +11,13 @@ import { Message, WebsocketService } from 'src/Services/websocket.service';
 })
 export class DeviceManagerComponent {
 
-  subject! : WebSocketSubject<unknown>;
   settings: SettingsDTO = new SettingsDTO();
-  constructor(private websocketService: WebsocketService) {
-
-    this.subject = webSocket(this.settings.host);
-
-
-    // this.websocketService.messages.subscribe({
-    //   next: msg => console.log('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
-    //   error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-    //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
-    // });
-
-  }
-
-  //url: string = "ws://192.168.86.47:50000/";
+  constructor(private websocketService: WebsocketService) { }
 
   Beep() {
 
-    //this.websocketService.connect(this.settings.host);
-
-    var message = new Message();
     var root = new RequestRoot();
-    var requestObj = new RequestDTO() ;
+    var requestObj = new RequestDTO();
     requestObj.endpoint = "/upp/v1/device";
     requestObj.flow_id = FlowId.generate();
     requestObj.resource = new ResourceDTO();
@@ -44,23 +25,14 @@ export class DeviceManagerComponent {
     requestObj.resource.tone = "low";
     requestObj.resource.type = "beep";
     root.request = requestObj;
-    message.content = root;
 
-    //this.websocketService.messages.next(message.content);
-
-    // without service
-
-    this.subject.subscribe({
+    this.websocketService.receiveMessage().subscribe({
       next: msg => console.log('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
       error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
       complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
     });
-
-    this.subject.next(root);
-
-
+    this.websocketService.sendMessage(root);
   }
-
 }
 
 
