@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FlowId } from 'src/Helper/FlowIdHelper';
 import { BeepRequestDTO, BeepResourceDTO, RequestDTO, RequestRoot, ResetResourceDTO, ResourceDTO, ManualTransactionResourceDTO } from 'src/models/RequestDTO';
 import { SettingsDTO } from 'src/models/SettingsDTO.model';
+import { RequestSession } from 'src/Services/RequestSession';
 import { WebsocketService } from 'src/Services/websocket.service';
 
 @Component({
@@ -13,11 +14,71 @@ export class DeviceManagerComponent implements OnDestroy {
 
   requestresponsetext: string = '';
   settings: SettingsDTO = new SettingsDTO();
+  beepRequestSession!: RequestSession;
+  ResetRequestSession!: RequestSession;
+  ManualTransactionRequestSession!: RequestSession;
   constructor(private websocketService: WebsocketService) {
   }
 
   ngOnDestroy(): void {
-    this.websocketService.closeSocket();
+    this.beepRequestSession.getSession().closeSocket();
+    this.ResetRequestSession.getSession().closeSocket();
+    this.ManualTransactionRequestSession.getSession().closeSocket();
+    //this.websocketService.closeSocket();
+  }
+
+
+  // **************** JS *************************
+
+  BeepJs() {
+    //debugger;
+    this.beepRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this),null);
+    this.beepRequestSession.send(this.buildBeepResource());
+  }
+
+  buildBeepResource(): any {
+    //debugger;
+    const res: any = { "type": "beep" };
+    res["tone"] = "low";
+    res["duration"] = "click_length";
+    return res;
+  }
+
+  ResetJs() {
+    //debugger;
+    this.ResetRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this),null);
+    this.ResetRequestSession.send(this.buildResetResource());
+  }
+
+  buildResetResource(): any {
+    //debugger;
+    const res: any = { "type": "reset" };
+    res["keep_form"] = false;
+    return res;
+  }
+
+  ManualTransactionJs():any{
+    this.ManualTransactionRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this),null);
+    var transactionRequestDTO = new ManualTransactionResourceDTO();
+    transactionRequestDTO.amount = 1000;
+    this.ManualTransactionRequestSession.send(transactionRequestDTO);
+  }
+
+  onResponseReceived(msg: any) {
+    var compMsg = new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
+    this.requestresponsetext += compMsg;
+  }
+
+  onSend(msg: any) {
+    //debugger;
+    var compMsg = new Date() + " | " + "Client -> Terminal" + " | " + JSON.stringify(msg) + "\r\n\r\n";
+    this.requestresponsetext += compMsg;
+  }
+
+  // **************** JS *************************
+
+  ClearAll(){
+    this.requestresponsetext = "";
   }
 
   Beep() {
@@ -59,7 +120,6 @@ export class DeviceManagerComponent implements OnDestroy {
   }
 
   Reset() {
-    //{"request":{"flow_id":"915323","resource":{"type":"reset","keep_form":false}}}
 
     var root = new RequestRoot();
     var requestObj = new RequestDTO();
@@ -76,10 +136,12 @@ export class DeviceManagerComponent implements OnDestroy {
       complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
     });
 
-    this.requestresponsetext += obj.sendMessage(root);
   }
 
+
+
   private onMessageReceive(msg: string) {
+    debugger;
     this.requestresponsetext += new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
   }
 
@@ -102,7 +164,6 @@ export class DeviceManagerComponent implements OnDestroy {
       complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
     });
 
-    this.requestresponsetext += obj.sendMessage(root);
   }
 
 }

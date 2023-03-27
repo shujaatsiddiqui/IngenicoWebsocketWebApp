@@ -14,9 +14,8 @@ export class WebsocketService {
     this.socket$ = new WebSocketSubject(this.settings.host);
   }
 
-  public sendMessage(message: any): string {
+  public sendMessage(message: any) {
     this.socket$.next(message);
-    return new Date() + " | " + "Client -> Terminal" + " | " + JSON.stringify(message) + "\r\n\r\n";
   }
 
   public receiveMessage() {
