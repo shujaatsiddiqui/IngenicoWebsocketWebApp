@@ -1,0 +1,28 @@
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin: 1rem;
+
+  button {
+    margin: 0.5rem;
+  }
+}
+
+.text-area {
+  height: 500px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  box-sizing: border-box;
+}
+
+// div {
+//   display: flex;
+//   flex-direction: column;
+// }
+

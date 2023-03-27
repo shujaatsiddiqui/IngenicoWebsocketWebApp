@@ -1,4 +1,11 @@
-<button mat-raised-button (click)="Beep()">Beep</button>
-<button mat-raised-button (click)="GetDirectoryListings()">Get Directory Listings</button>
-<button mat-raised-button (click)="Reset()">Reset</button>
-<button mat-raised-button (click)="Transaction()">Transaction</button>
+<div class="button-container">
+  <button mat-raised-button (click)="Beep()">Beep</button>
+  <button mat-raised-button (click)="GetDirectoryListings()">Get Directory Listings</button>
+  <button mat-raised-button (click)="Reset()">Reset</button>
+  <button mat-raised-button (click)="Transaction()">Transaction</button>
+</div>
+<div>
+  <label>Rich Text Box</label>
+  <br>
+  <textarea  class="text-area">{{requestresponsetext}}</textarea>
+</div>

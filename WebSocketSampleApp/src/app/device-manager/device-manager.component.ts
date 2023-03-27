@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FlowId } from 'src/Helper/FlowIdHelper';
 import { BeepRequestDTO, BeepResourceDTO, RequestDTO, RequestRoot, ResetResourceDTO, ResourceDTO, ManualTransactionResourceDTO } from 'src/models/RequestDTO';
 import { SettingsDTO } from 'src/models/SettingsDTO.model';
@@ -9,12 +9,15 @@ import { WebsocketService } from 'src/Services/websocket.service';
   templateUrl: './device-manager.component.html',
   styleUrls: ['./device-manager.component.scss']
 })
-export class DeviceManagerComponent {
+export class DeviceManagerComponent implements OnDestroy {
 
+  requestresponsetext: string = '';
   settings: SettingsDTO = new SettingsDTO();
   constructor(private websocketService: WebsocketService) {
+  }
 
-
+  ngOnDestroy(): void {
+    this.websocketService.closeSocket();
   }
 
   Beep() {
@@ -55,8 +58,7 @@ export class DeviceManagerComponent {
     this.websocketService.sendMessage(root);
   }
 
-  Reset()
-  {
+  Reset() {
     //{"request":{"flow_id":"915323","resource":{"type":"reset","keep_form":false}}}
 
     var root = new RequestRoot();
@@ -66,17 +68,22 @@ export class DeviceManagerComponent {
     requestObj.resource = new ResetResourceDTO();
     root.request = requestObj;
 
-    this.websocketService.receiveMessage().subscribe({
-      next: msg => alert('Reset message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
+    let obj = new WebsocketService();
+
+    obj.receiveMessage().subscribe({
+      next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
       error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+      complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
     });
 
-    this.websocketService.sendMessage(root);
+    this.requestresponsetext += obj.sendMessage(root);
   }
 
-  Transaction()
-  {
+  private onMessageReceive(msg: string) {
+    this.requestresponsetext += new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
+  }
+
+  Transaction() {
     //{"request":{"endpoint":"\/upp\/v1\/transaction","flow_id":"6442528","resource":{"type":"manual_entry","amount":"2501","fields":["pan","exp"]}}}
     var root = new RequestRoot();
     var requestObj = new RequestDTO();
@@ -87,13 +94,15 @@ export class DeviceManagerComponent {
     requestObj.resource = transactionRequestDTO;
     root.request = requestObj;
 
-    this.websocketService.receiveMessage().subscribe({
-      next: msg => alert('Transaction message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
+    let obj = new WebsocketService();
+
+    obj.receiveMessage().subscribe({
+      next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
       error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+      complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
     });
 
-    this.websocketService.sendMessage(root);
+    this.requestresponsetext += obj.sendMessage(root);
   }
 
 }
