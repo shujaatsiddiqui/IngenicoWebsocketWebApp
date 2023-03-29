@@ -2,6 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { FlowId } from 'src/Helper/FlowIdHelper';
 import { BeepRequestDTO, BeepResourceDTO, RequestDTO, RequestRoot, ResetResourceDTO, ResourceDTO, ManualTransactionResourceDTO } from 'src/models/RequestDTO';
 import { SettingsDTO } from 'src/models/SettingsDTO.model';
+import { DeviceHelperBase } from 'src/Services/DeviceHelperBase';
+import { Message } from 'src/Services/Message';
 import { RequestSession } from 'src/Services/RequestSession';
 import { WebsocketService } from 'src/Services/websocket.service';
 
@@ -12,159 +14,166 @@ import { WebsocketService } from 'src/Services/websocket.service';
 })
 export class DeviceManagerComponent implements OnDestroy {
 
+  swipeFlowId: string = '';
   requestresponsetext: string = '';
   settings: SettingsDTO = new SettingsDTO();
   beepRequestSession!: RequestSession;
   ResetRequestSession!: RequestSession;
   ManualTransactionRequestSession!: RequestSession;
-  constructor(private websocketService: WebsocketService) {
+  swipeRequestSession!: RequestSession;
+  displayFormRequestSession!: RequestSession;
+  constructor(private deviceHelperBase: DeviceHelperBase) {
   }
 
   ngOnDestroy(): void {
     this.beepRequestSession.getSession().closeSocket();
     this.ResetRequestSession.getSession().closeSocket();
     this.ManualTransactionRequestSession.getSession().closeSocket();
+    this.swipeRequestSession.getSession().closeSocket();
+    this.displayFormRequestSession.getSession().closeSocket();
     //this.websocketService.closeSocket();
   }
 
-
-  // **************** JS *************************
-
-  BeepJs() {
-    //debugger;
-    this.beepRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this),null);
-    this.beepRequestSession.send(this.buildBeepResource());
+  Beep() {
+    this.beepRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    this.beepRequestSession.send(this.deviceHelperBase.getBeepResource());
   }
 
-  buildBeepResource(): any {
-    //debugger;
-    const res: any = { "type": "beep" };
-    res["tone"] = "low";
-    res["duration"] = "click_length";
-    return res;
+  Reset() {
+    this.ResetRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    this.ResetRequestSession.send(this.deviceHelperBase.getResetResource());
   }
 
-  ResetJs() {
-    //debugger;
-    this.ResetRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this),null);
-    this.ResetRequestSession.send(this.buildResetResource());
+  ManualTransaction(): any {
+    this.ManualTransactionRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    this.ManualTransactionRequestSession.send(this.deviceHelperBase.getManualTransactionResource(1000));
   }
 
-  buildResetResource(): any {
-    //debugger;
-    const res: any = { "type": "reset" };
-    res["keep_form"] = false;
-    return res;
+  async Swipe(): Promise<any> {
+    this.Reset();
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    this.swipeRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    this.swipeFlowId = this.swipeRequestSession.flowId_;
+    this.swipeRequestSession.send(this.deviceHelperBase.getSwipeResource());
+    this.DisplayForm("LAF_swipe0.k3z");
   }
 
-  ManualTransactionJs():any{
-    this.ManualTransactionRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this),null);
-    var transactionRequestDTO = new ManualTransactionResourceDTO();
-    transactionRequestDTO.amount = 1000;
-    this.ManualTransactionRequestSession.send(transactionRequestDTO);
+  DisplayForm(formName: any): any {
+    this.displayFormRequestSession = new RequestSession("/upp/v1/form", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    this.displayFormRequestSession.send(this.deviceHelperBase.getDisplayFormResource(formName));
   }
 
   onResponseReceived(msg: any) {
     var compMsg = new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
     this.requestresponsetext += compMsg;
+    var msgObj = new Message(JSON.stringify(msg));
+    if (msgObj.getFlowId() == this.swipeFlowId
+      && msgObj.isEvent() && msgObj.status == "completed") {
+      this.DisplayForm("LAF_Welcome.k3z");
+    }
   }
 
   onSend(msg: any) {
-    //debugger;
     var compMsg = new Date() + " | " + "Client -> Terminal" + " | " + JSON.stringify(msg) + "\r\n\r\n";
     this.requestresponsetext += compMsg;
   }
 
-  // **************** JS *************************
+  onTimeOut(msg: any) {
+    var compMsg = new Date() + " | " + "Client -> Terminal" + " | " + msg + "\r\n\r\n";
+    this.requestresponsetext += compMsg;
+  }
 
-  ClearAll(){
+
+
+  ClearAll() {
     this.requestresponsetext = "";
   }
 
-  Beep() {
+  // Beep() {
 
-    var root = new RequestRoot();
-    var requestObj = new BeepRequestDTO();
-    requestObj.endpoint = "/upp/v1/device";
-    requestObj.flow_id = FlowId.generate();
-    requestObj.resource = new BeepResourceDTO();
-    requestObj.resource.duration = "click_length";
-    requestObj.resource.tone = "low";
-    requestObj.resource.type = "beep";
-    root.request = requestObj;
+  //   // var root = new RequestRoot();
+  //   // var requestObj = new BeepRequestDTO();
+  //   // requestObj.endpoint = "/upp/v1/device";
+  //   // requestObj.flow_id = FlowId.generate();
+  //   // requestObj.resource = new BeepResourceDTO();
+  //   // requestObj.resource.duration = "click_length";
+  //   // requestObj.resource.tone = "low";
+  //   // requestObj.resource.type = "beep";
+  //   // root.request = requestObj;
 
-    this.websocketService.receiveMessage().subscribe({
-      next: msg => alert('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
-      error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
-    });
+  //   // this.websocketService.receiveMessage().subscribe({
+  //   //   next: msg => alert('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
+  //   //   error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+  //   //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+  //   // });
 
-    this.websocketService.sendMessage(root);
-  }
+  //   // this.websocketService.sendMessage(root);
+  // }
 
-  GetDirectoryListings() {
-    debugger;
-    var root = new RequestRoot();
-    var requestObj = new RequestDTO();
-    requestObj.flow_id = FlowId.generate();
-    requestObj.resource = new ResourceDTO();
-    root.request = requestObj;
+  // GetDirectoryListings() {
+  //   debugger;
+  //   var root = new RequestRoot();
+  //   var requestObj = new RequestDTO();
+  //   requestObj.flow_id = FlowId.generate();
+  //   requestObj.resource = new ResourceDTO();
+  //   root.request = requestObj;
 
-    this.websocketService.receiveMessage().subscribe({
-      next: msg => alert('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
-      error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
-    });
+  //   // this.websocketService.receiveMessage().subscribe({
+  //   //   next: msg => alert('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
+  //   //   error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+  //   //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+  //   // });
 
-    this.websocketService.sendMessage(root);
-  }
+  //   // this.websocketService.sendMessage(root);
+  // }
 
-  Reset() {
+  // Reset() {
 
-    var root = new RequestRoot();
-    var requestObj = new RequestDTO();
-    requestObj.endpoint = "/upp/v1/device";
-    requestObj.flow_id = FlowId.generate();
-    requestObj.resource = new ResetResourceDTO();
-    root.request = requestObj;
+  //   var root = new RequestRoot();
+  //   var requestObj = new RequestDTO();
+  //   requestObj.endpoint = "/upp/v1/device";
+  //   requestObj.flow_id = FlowId.generate();
+  //   requestObj.resource = new ResetResourceDTO();
+  //   root.request = requestObj;
 
-    let obj = new WebsocketService();
+  //   let obj = new WebsocketService();
 
-    obj.receiveMessage().subscribe({
-      next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
-      error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
-    });
+  //   obj.receiveMessage().subscribe({
+  //     next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
+  //     error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+  //     complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
+  //   });
 
-  }
+  // }
 
 
 
-  private onMessageReceive(msg: string) {
-    debugger;
-    this.requestresponsetext += new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
-  }
+  // private onMessageReceive(msg: string) {
+  //   debugger;
+  //   this.requestresponsetext += new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
 
-  Transaction() {
-    //{"request":{"endpoint":"\/upp\/v1\/transaction","flow_id":"6442528","resource":{"type":"manual_entry","amount":"2501","fields":["pan","exp"]}}}
-    var root = new RequestRoot();
-    var requestObj = new RequestDTO();
-    requestObj.endpoint = "/upp/v1/transaction";
-    requestObj.flow_id = FlowId.generate();
-    var transactionRequestDTO = new ManualTransactionResourceDTO();
-    transactionRequestDTO.amount = 1000;
-    requestObj.resource = transactionRequestDTO;
-    root.request = requestObj;
+  // }
 
-    let obj = new WebsocketService();
+  // Transaction() {
+  //   //{"request":{"endpoint":"\/upp\/v1\/transaction","flow_id":"6442528","resource":{"type":"manual_entry","amount":"2501","fields":["pan","exp"]}}}
+  //   var root = new RequestRoot();
+  //   var requestObj = new RequestDTO();
+  //   requestObj.endpoint = "/upp/v1/transaction";
+  //   requestObj.flow_id = FlowId.generate();
+  //   var transactionRequestDTO = new ManualTransactionResourceDTO();
+  //   transactionRequestDTO.amount = 1000;
+  //   requestObj.resource = transactionRequestDTO;
+  //   root.request = requestObj;
 
-    obj.receiveMessage().subscribe({
-      next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
-      error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
-    });
+  //   let obj = new WebsocketService();
 
-  }
+  //   obj.receiveMessage().subscribe({
+  //     next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
+  //     error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
+  //     complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
+  //   });
+
+  // }
 
 }
 

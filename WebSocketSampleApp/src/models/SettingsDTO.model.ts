@@ -7,14 +7,8 @@ export class SettingsDTO {
   public protocol: number = ProtocolEnum.UPP;
   public flowIdLength: number = 6;
   public jwtToken: string = "";
-  responseTimeoutSec: number = 30;
+  responseTimeoutSec: number = 5;
 }
-
-
-var EndpointModeEnum = {
-  SINGLE: 0,
-  MULTIPLE: 1
-};
 
 var ProtocolEnum = {
   UPP: 0,

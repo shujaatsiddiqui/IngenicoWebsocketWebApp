@@ -8,9 +8,10 @@ export class RequestSession {
   websocketService!: WebsocketService;
   flowId_!: string;
   settings: SettingsDTO = new SettingsDTO();
+  responseTimeout: any;
 
   constructor(private endpoint: string, private onReceive: ((evt: any) => void) | null, private onSend: ((evt: any) => void) | null,
-    private onComplete: ((evt: any) => void) | null) {
+    private onComplete: ((evt: any) => void) | null, private onTimeout: ((evt: any) => void) | null) {
 
     this.websocketService = new WebsocketService();
     this.flowId_ = FlowId.generate();
@@ -22,11 +23,10 @@ export class RequestSession {
   }
 
   onSessionReceive(evt: any) {
-    debugger;
     var msg = new Message(JSON.stringify(evt));
     if (msg.isResponse() || msg.isEventAck()) {
       if (msg.getFlowId() == this.flowId_) {
-        //clearTimeout(this.responseTimeout);
+        clearTimeout(this.responseTimeout);
       }
     }
 
@@ -62,7 +62,7 @@ export class RequestSession {
     this.websocketService.receiveMessage().subscribe({
       next: msg => this.onSessionReceive(msg), // Called whenever there is a message from the server.
       error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+      complete: () => { console.log('complete') } // Called when connection is closed (for whatever reason).
     });
   }
 
@@ -74,9 +74,10 @@ export class RequestSession {
     this.websocketService.sendMessage(request);
     if (this.onSend) this.onSend(request);
 
-    // this.responseTimeout = setTimeout(() => {
-    //   this.websocketService.closeSocket()
-    // }, this.settings.responseTimeoutSec * 1000);
+    this.responseTimeout = setTimeout(() => {
+      this.websocketService.closeSocket();
+      if (this.onTimeout) this.onTimeout("Transaction timeout!");
+    }, this.settings.responseTimeoutSec * 1000);
   }
 
 
@@ -89,9 +90,10 @@ export class RequestSession {
     this.websocketService.sendMessage(request);
     if (this.onSend) this.onSend(request);
 
-    // this.responseTimeout = setTimeout(() => {
-    //   this.websocketService.closeSocket()
-    // }, this.settings.responseTimeoutSec * 1000);
+    this.responseTimeout = setTimeout(() => {
+      this.websocketService.closeSocket();
+      if (this.onTimeout) this.onTimeout("Transaction timeout!");
+    }, this.settings.responseTimeoutSec * 1000);
   }
 
 
