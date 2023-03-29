@@ -61,4 +61,10 @@ export class DeviceHelperBase {
     return res;
   }
 
+  getVariableValueResource(csvVarValues: string): any {
+    const res: any = { "type": "variables" };
+    res["get"] = csvVarValues.split(",");
+    return res;
+  }
+
 }

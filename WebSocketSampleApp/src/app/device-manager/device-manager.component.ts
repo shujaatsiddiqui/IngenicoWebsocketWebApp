@@ -22,6 +22,7 @@ export class DeviceManagerComponent implements OnDestroy {
   ManualTransactionRequestSession!: RequestSession;
   swipeRequestSession!: RequestSession;
   displayFormRequestSession!: RequestSession;
+  getVariableRequestSession!: RequestSession;
   constructor(private deviceHelperBase: DeviceHelperBase) {
   }
 
@@ -56,6 +57,11 @@ export class DeviceManagerComponent implements OnDestroy {
     this.swipeFlowId = this.swipeRequestSession.flowId_;
     this.swipeRequestSession.send(this.deviceHelperBase.getSwipeResource());
     this.DisplayForm("LAF_swipe0.k3z");
+  }
+
+  getVariable(csvVarValues: string): any {
+    this.getVariableRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    this.getVariableRequestSession.send(this.deviceHelperBase.getVariableValueResource(csvVarValues));
   }
 
   DisplayForm(formName: any): any {
