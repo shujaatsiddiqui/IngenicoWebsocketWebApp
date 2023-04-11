@@ -15,6 +15,7 @@ import { WebsocketService } from 'src/Services/websocket.service';
 export class DeviceManagerComponent implements OnDestroy {
 
   swipeFlowId: string = '';
+  manualTransactionFlowId: string = '';
   requestresponsetext: string = '';
   settings: SettingsDTO = new SettingsDTO();
   beepRequestSession!: RequestSession;
@@ -45,18 +46,22 @@ export class DeviceManagerComponent implements OnDestroy {
     this.ResetRequestSession.send(this.deviceHelperBase.getResetResource());
   }
 
-  ManualTransaction(): any {
+  async ManualTransaction(): Promise<any> {
+    this.Reset();
+    await new Promise(resolve => setTimeout(resolve, 1000));
     this.ManualTransactionRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    this.manualTransactionFlowId = this.ManualTransactionRequestSession.flowId_;
     this.ManualTransactionRequestSession.send(this.deviceHelperBase.getManualTransactionResource(1000));
+    //this.DisplayForm("LAF_CARDNUM.k3z");
   }
 
   async Swipe(): Promise<any> {
     this.Reset();
     await new Promise(resolve => setTimeout(resolve, 1000));
+    this.DisplayForm("LAF_swipe0.k3z");
     this.swipeRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
     this.swipeFlowId = this.swipeRequestSession.flowId_;
     this.swipeRequestSession.send(this.deviceHelperBase.getSwipeResource());
-    this.DisplayForm("LAF_swipe0.k3z");
   }
 
   getVariable(csvVarValues: string): any {
@@ -73,7 +78,7 @@ export class DeviceManagerComponent implements OnDestroy {
     var compMsg = new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
     this.requestresponsetext += compMsg;
     var msgObj = new Message(JSON.stringify(msg));
-    if (msgObj.getFlowId() == this.swipeFlowId
+    if ((msgObj.getFlowId() == this.swipeFlowId || msgObj.getFlowId() == this.manualTransactionFlowId)
       && msgObj.isEvent() && msgObj.status == "completed") {
       this.DisplayForm("LAF_Welcome.k3z");
     }
