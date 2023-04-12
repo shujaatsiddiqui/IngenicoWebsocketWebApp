@@ -37,6 +37,12 @@ export class DeviceHelperBase {
     return res;
   }
 
+  getDisconnectResource(): any {
+    //debugger;
+    const res: any = { "type": "disconnect" };
+    return res;
+  }
+
   // PerformManualTransaction(amount: number, onReceive: ((evt: any) => void) | null, onSend: ((evt: any) => void) | null): any {
   //   let manualTransactionRequestSession = new RequestSession("/upp/v1/transaction", onReceive, onSend, null);
   //   this.requestSessionArray?.push(manualTransactionRequestSession);

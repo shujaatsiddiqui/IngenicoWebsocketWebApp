@@ -62,7 +62,7 @@ export class RequestSession {
     this.websocketService.receiveMessage().subscribe({
       next: msg => this.onSessionReceive(msg), // Called whenever there is a message from the server.
       error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => { console.log('complete') } // Called when connection is closed (for whatever reason).
+      complete: () => { console.log(this.flowId_ + " | completed") } // Called when connection is closed (for whatever reason).
     });
   }
 
@@ -76,7 +76,7 @@ export class RequestSession {
 
     this.responseTimeout = setTimeout(() => {
       this.websocketService.closeSocket();
-      if (this.onTimeout) this.onTimeout("Transaction timeout!");
+      if (this.onTimeout) this.onTimeout(this.flowId_ +" | Transaction timeout!");
     }, this.settings.responseTimeoutSec * 1000);
   }
 
@@ -92,7 +92,7 @@ export class RequestSession {
 
     this.responseTimeout = setTimeout(() => {
       this.websocketService.closeSocket();
-      if (this.onTimeout) this.onTimeout("Transaction timeout!");
+      if (this.onTimeout) this.onTimeout(this.flowId_ +" | Transaction timeout!");
     }, this.settings.responseTimeoutSec * 1000);
   }
 

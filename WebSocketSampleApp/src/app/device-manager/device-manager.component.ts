@@ -1,3 +1,6 @@
+// Issues:
+// When switching from manual to swipe transaction is not working and vice versa
+
 import { Component, OnDestroy } from '@angular/core';
 import { FlowId } from 'src/Helper/FlowIdHelper';
 import { BeepRequestDTO, BeepResourceDTO, RequestDTO, RequestRoot, ResetResourceDTO, ResourceDTO, ManualTransactionResourceDTO } from 'src/models/RequestDTO';
@@ -16,29 +19,33 @@ export class DeviceManagerComponent implements OnDestroy {
 
   swipeFlowId: string = '';
   manualTransactionFlowId: string = '';
+  displayFormTransaction!: RequestSession;
   requestresponsetext: string = '';
   settings: SettingsDTO = new SettingsDTO();
   beepRequestSession!: RequestSession;
   ResetRequestSession!: RequestSession;
   ManualTransactionRequestSession!: RequestSession;
   swipeRequestSession!: RequestSession;
-  displayFormRequestSession!: RequestSession;
   getVariableRequestSession!: RequestSession;
   constructor(private deviceHelperBase: DeviceHelperBase) {
   }
 
   ngOnDestroy(): void {
-    this.beepRequestSession.getSession().closeSocket();
-    this.ResetRequestSession.getSession().closeSocket();
-    this.ManualTransactionRequestSession.getSession().closeSocket();
-    this.swipeRequestSession.getSession().closeSocket();
-    this.displayFormRequestSession.getSession().closeSocket();
+    this.beepRequestSession?.getSession()?.closeSocket();
+    this.ResetRequestSession?.getSession()?.closeSocket();
+    this.ManualTransactionRequestSession?.getSession()?.closeSocket();
+    this.swipeRequestSession?.getSession()?.closeSocket();
     //this.websocketService.closeSocket();
   }
 
   Beep() {
     this.beepRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
     this.beepRequestSession.send(this.deviceHelperBase.getBeepResource());
+  }
+
+  Disconnect() {
+    let dcSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    dcSession.send(this.deviceHelperBase.getDisconnectResource());
   }
 
   Reset() {
@@ -48,7 +55,9 @@ export class DeviceManagerComponent implements OnDestroy {
 
   async ManualTransaction(): Promise<any> {
     this.Reset();
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    // this.Disconnect();
+    // await new Promise(resolve => setTimeout(resolve, 2000));
     this.ManualTransactionRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
     this.manualTransactionFlowId = this.ManualTransactionRequestSession.flowId_;
     this.ManualTransactionRequestSession.send(this.deviceHelperBase.getManualTransactionResource(1000));
@@ -57,11 +66,13 @@ export class DeviceManagerComponent implements OnDestroy {
 
   async Swipe(): Promise<any> {
     this.Reset();
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    this.DisplayForm("LAF_swipe0.k3z");
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    // this.Disconnect();
+    // await new Promise(resolve => setTimeout(resolve, 2000));
     this.swipeRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
     this.swipeFlowId = this.swipeRequestSession.flowId_;
     this.swipeRequestSession.send(this.deviceHelperBase.getSwipeResource());
+    this.displayFormTransaction =  this.DisplayForm("LAF_swipe0.k3z");
   }
 
   getVariable(csvVarValues: string): any {
@@ -70,15 +81,20 @@ export class DeviceManagerComponent implements OnDestroy {
   }
 
   DisplayForm(formName: any): any {
-    this.displayFormRequestSession = new RequestSession("/upp/v1/form", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
-    this.displayFormRequestSession.send(this.deviceHelperBase.getDisplayFormResource(formName));
+    var displayFormRequestSession!: RequestSession;
+    displayFormRequestSession = new RequestSession("/upp/v1/form", this.onResponseReceived.bind(this), this.onSend.bind(this), null, this.onTimeOut.bind(this));
+    displayFormRequestSession.send(this.deviceHelperBase.getDisplayFormResource(formName));
+    return displayFormRequestSession;
   }
 
   onResponseReceived(msg: any) {
     var compMsg = new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
     this.requestresponsetext += compMsg;
     var msgObj = new Message(JSON.stringify(msg));
-    if ((msgObj.getFlowId() == this.swipeFlowId || msgObj.getFlowId() == this.manualTransactionFlowId)
+    if (
+      (msgObj.getFlowId() == this.swipeFlowId
+      || msgObj.getFlowId() == this.manualTransactionFlowId
+      || msgObj.getFlowId() == this.displayFormTransaction?.flowId_)
       && msgObj.isEvent() && msgObj.status == "completed") {
       this.DisplayForm("LAF_Welcome.k3z");
     }
