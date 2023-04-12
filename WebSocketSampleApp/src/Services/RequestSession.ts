@@ -62,7 +62,7 @@ export class RequestSession {
     this.websocketService.receiveMessage().subscribe({
       next: msg => this.onSessionReceive(msg), // Called whenever there is a message from the server.
       error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => { console.log(this.flowId_ + " | completed") } // Called when connection is closed (for whatever reason).
+      complete: () => { if(this.onComplete) this.onComplete(this.flowId_ + " | completed") } // Called when connection is closed (for whatever reason).
     });
   }
 
