@@ -1,5 +1,7 @@
 // Issues:
-// When switching from manual to swipe transaction is not working and vice versa
+// When switching from manual to swipe transaction directly without cancelling the form is not working and vice versa (not fixed)
+// When switching from manual to swipe transaction directly without reset the form is not working and vice versa (not fixed)
+// When switching from manual to swipe transaction directly without hard refresh (f5) the form is not working and vice versa (not fixed)
 
 import { Component, OnDestroy } from '@angular/core';
 import { FlowId } from 'src/Helper/FlowIdHelper';
