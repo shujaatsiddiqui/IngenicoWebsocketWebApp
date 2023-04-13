@@ -69,12 +69,12 @@ export class DeviceManagerComponent implements OnDestroy {
   async Swipe(): Promise<any> {
     this.Reset();
     await new Promise(resolve => setTimeout(resolve, 2000));
+    this.displayFormTransaction = this.DisplayForm("LAF_SWIPE0.k3z");
     // this.Disconnect();
     // await new Promise(resolve => setTimeout(resolve, 2000));
     this.swipeRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), this.onComplete.bind(this), this.onTimeOut.bind(this));
     this.swipeFlowId = this.swipeRequestSession.flowId_;
     this.swipeRequestSession.send(this.deviceHelperBase.getSwipeResource());
-    this.displayFormTransaction = this.DisplayForm("LAF_swipe0.k3z");
   }
 
   getVariable(csvVarValues: string): any {
