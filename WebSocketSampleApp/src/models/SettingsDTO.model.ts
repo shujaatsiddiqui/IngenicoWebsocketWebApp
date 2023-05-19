@@ -1,6 +1,6 @@
 export class SettingsDTO {
   public app: string = "";
-  public host: string = "ws://192.168.86.47:50000/";
+  public host: string = "ws://192.168.86.59:50000/";
   public version: string = "v1";
   public esponseTimeoutSec = "5";
   public endpointMode: number = 0;

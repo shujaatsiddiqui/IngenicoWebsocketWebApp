@@ -1,7 +1,7 @@
 // Issues:
-// When switching from manual to swipe transaction directly without cancelling the form is not working and vice versa (not fixed)
-// When switching from manual to swipe transaction directly without reset the form is not working and vice versa (not fixed)
-// When switching from manual to swipe transaction directly without hard refresh (f5) the form is not working and vice versa (not fixed)
+// When switching from manual to swipe transaction directly without cancelling the form is not working and vice versa (fixed)
+// When switching from manual to swipe transaction directly without reset the form is not working and vice versa (fixed)
+// When switching from manual to swipe transaction directly without hard refresh (f5) the form is not working and vice versa (fixed)
 
 import { Component, OnDestroy } from '@angular/core';
 import { FlowId } from 'src/Helper/FlowIdHelper';
@@ -19,25 +19,31 @@ import { WebsocketService } from 'src/Services/websocket.service';
 })
 export class DeviceManagerComponent implements OnDestroy {
 
-  swipeFlowId: string = '';
-  manualTransactionFlowId: string = '';
   displayFormTransaction!: RequestSession;
-  requestresponsetext: string = '';
-  settings: SettingsDTO = new SettingsDTO();
   beepRequestSession!: RequestSession;
   ResetRequestSession!: RequestSession;
   ManualTransactionRequestSession!: RequestSession;
   swipeRequestSession!: RequestSession;
   getVariableRequestSession!: RequestSession;
+  swipeFlowId: string = '';
+  manualTransactionFlowId: string = '';
+  requestresponsetext: string = '';
+  settings: SettingsDTO = new SettingsDTO();
+  isSwipe: boolean = false;
+  isManual: boolean = false;
+  resetSwipeFlowId: string = "";
+  resetManualFlowId: string = "";
   constructor(private deviceHelperBase: DeviceHelperBase) {
   }
 
   ngOnDestroy(): void {
+    var compMsg = new Date() + " | " + "Calling ngOnDestroy \r\n\r\n";
+    this.requestresponsetext += compMsg;
     this.beepRequestSession?.getSession()?.closeSocket();
     this.ResetRequestSession?.getSession()?.closeSocket();
     this.ManualTransactionRequestSession?.getSession()?.closeSocket();
     this.swipeRequestSession?.getSession()?.closeSocket();
-    //this.websocketService.closeSocket();
+    this.displayFormTransaction?.getSession()?.closeSocket();
   }
 
   Beep() {
@@ -53,28 +59,17 @@ export class DeviceManagerComponent implements OnDestroy {
   Reset() {
     this.ResetRequestSession = new RequestSession("/upp/v1/device", this.onResponseReceived.bind(this), this.onSend.bind(this), this.onComplete.bind(this), this.onTimeOut.bind(this));
     this.ResetRequestSession.send(this.deviceHelperBase.getResetResource());
+    return this.ResetRequestSession;
   }
 
-  async ManualTransaction(): Promise<any> {
-    this.Reset();
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    // this.Disconnect();
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    this.ManualTransactionRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), this.onComplete.bind(this), this.onTimeOut.bind(this));
-    this.manualTransactionFlowId = this.ManualTransactionRequestSession.flowId_;
-    this.ManualTransactionRequestSession.send(this.deviceHelperBase.getManualTransactionResource(1000));
-    //this.DisplayForm("LAF_CARDNUM.k3z");
+  ManualTransaction() {
+    this.isManual = true;
+    this.resetManualFlowId = this.Reset().flowId_;
   }
 
-  async Swipe(): Promise<any> {
-    this.Reset();
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    this.displayFormTransaction = this.DisplayForm("LAF_SWIPE0.k3z");
-    // this.Disconnect();
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    this.swipeRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), this.onComplete.bind(this), this.onTimeOut.bind(this));
-    this.swipeFlowId = this.swipeRequestSession.flowId_;
-    this.swipeRequestSession.send(this.deviceHelperBase.getSwipeResource());
+  Swipe() {
+    this.isSwipe = true;
+    this.resetSwipeFlowId = this.Reset().flowId_;
   }
 
   getVariable(csvVarValues: string): any {
@@ -89,17 +84,39 @@ export class DeviceManagerComponent implements OnDestroy {
     return displayFormRequestSession;
   }
 
-  onResponseReceived(msg: any) {
+  async onResponseReceived(msg: any) {
     var compMsg = new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
     this.requestresponsetext += compMsg;
     var msgObj = new Message(JSON.stringify(msg));
-    if (
+    // reset is successful before calling swipe
+    if (this.resetSwipeFlowId == msgObj.getFlowId()
+      && this.isSwipe && msgObj.isEvent() && msgObj.status == "completed") {
+      debugger;
+      //await new Promise(resolve => setTimeout(resolve, 1000));
+      this.swipeRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), this.onComplete.bind(this), this.onTimeOut.bind(this));
+      this.swipeFlowId = this.swipeRequestSession.flowId_;
+      this.swipeRequestSession.send(this.deviceHelperBase.getSwipeResource());
+      this.displayFormTransaction = this.DisplayForm("LAF_SWIPE0.k3z");
+      this.isSwipe = !this.isSwipe;
+    }
+    else if (this.resetManualFlowId == msgObj.getFlowId()
+      && this.isManual && msgObj.isEvent() && msgObj.status == "completed") {
+      debugger;
+      //await new Promise(resolve => setTimeout(resolve, 1000));
+      this.ManualTransactionRequestSession = new RequestSession("/upp/v1/transaction", this.onResponseReceived.bind(this), this.onSend.bind(this), this.onComplete.bind(this), this.onTimeOut.bind(this));
+      this.manualTransactionFlowId = this.ManualTransactionRequestSession.flowId_;
+      this.ManualTransactionRequestSession.send(this.deviceHelperBase.getManualTransactionResource(1000));
+      this.isManual = !this.isManual;
+    }
+    else if (
       (msgObj.getFlowId() == this.swipeFlowId
         || msgObj.getFlowId() == this.manualTransactionFlowId
         || msgObj.getFlowId() == this.displayFormTransaction?.flowId_)
       && msgObj.isEvent() && msgObj.status == "completed") {
-      //this.DisplayForm("LAF_Welcome.k3z");
-      this.Reset();
+          var compMsg = new Date() + " | " + "Client -> Terminal | Reset once everything is completed \r\n\r\n";
+          this.requestresponsetext += compMsg;
+          this.Reset();
+          this.swipeFlowId = this.manualTransactionFlowId = "";
     }
   }
 
@@ -123,92 +140,6 @@ export class DeviceManagerComponent implements OnDestroy {
   ClearAll() {
     this.requestresponsetext = "";
   }
-
-  // Beep() {
-
-  //   // var root = new RequestRoot();
-  //   // var requestObj = new BeepRequestDTO();
-  //   // requestObj.endpoint = "/upp/v1/device";
-  //   // requestObj.flow_id = FlowId.generate();
-  //   // requestObj.resource = new BeepResourceDTO();
-  //   // requestObj.resource.duration = "click_length";
-  //   // requestObj.resource.tone = "low";
-  //   // requestObj.resource.type = "beep";
-  //   // root.request = requestObj;
-
-  //   // this.websocketService.receiveMessage().subscribe({
-  //   //   next: msg => alert('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
-  //   //   error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-  //   //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
-  //   // });
-
-  //   // this.websocketService.sendMessage(root);
-  // }
-
-  // GetDirectoryListings() {
-  //   debugger;
-  //   var root = new RequestRoot();
-  //   var requestObj = new RequestDTO();
-  //   requestObj.flow_id = FlowId.generate();
-  //   requestObj.resource = new ResourceDTO();
-  //   root.request = requestObj;
-
-  //   // this.websocketService.receiveMessage().subscribe({
-  //   //   next: msg => alert('message received: ' + JSON.stringify(msg)), // Called whenever there is a message from the server.
-  //   //   error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-  //   //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
-  //   // });
-
-  //   // this.websocketService.sendMessage(root);
-  // }
-
-  // Reset() {
-
-  //   var root = new RequestRoot();
-  //   var requestObj = new RequestDTO();
-  //   requestObj.endpoint = "/upp/v1/device";
-  //   requestObj.flow_id = FlowId.generate();
-  //   requestObj.resource = new ResetResourceDTO();
-  //   root.request = requestObj;
-
-  //   let obj = new WebsocketService();
-
-  //   obj.receiveMessage().subscribe({
-  //     next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
-  //     error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-  //     complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
-  //   });
-
-  // }
-
-
-
-  // private onMessageReceive(msg: string) {
-  //   debugger;
-  //   this.requestresponsetext += new Date() + " | " + "Terminal -> Client" + " | " + JSON.stringify(msg) + "\r\n\r\n";
-
-  // }
-
-  // Transaction() {
-  //   //{"request":{"endpoint":"\/upp\/v1\/transaction","flow_id":"6442528","resource":{"type":"manual_entry","amount":"2501","fields":["pan","exp"]}}}
-  //   var root = new RequestRoot();
-  //   var requestObj = new RequestDTO();
-  //   requestObj.endpoint = "/upp/v1/transaction";
-  //   requestObj.flow_id = FlowId.generate();
-  //   var transactionRequestDTO = new ManualTransactionResourceDTO();
-  //   transactionRequestDTO.amount = 1000;
-  //   requestObj.resource = transactionRequestDTO;
-  //   root.request = requestObj;
-
-  //   let obj = new WebsocketService();
-
-  //   obj.receiveMessage().subscribe({
-  //     next: msg => this.onMessageReceive(msg), // Called whenever there is a message from the server.
-  //     error: err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-  //     complete: () => obj.closeSocket() // Called when connection is closed (for whatever reason).
-  //   });
-
-  // }
 
 }
 
